@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  contributor: one
+  percentage: 1.5
+
+two:
+  project: two
+  contributor: two
+  percentage: 1.5

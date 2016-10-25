@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_contributor.project %>
+</p>
+
+<p>
+  <strong>Contributor:</strong>
+  <%= @project_contributor.contributor %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @project_contributor.percentage %>
+</p>
+
+<%= link_to 'Edit', edit_project_contributor_path(@project_contributor) %> |
+<%= link_to 'Back', project_contributors_path %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :project_contributors
+  resources :project_payments
+  resources :projects
   resources :contributors
   resources :clients
   resources :company_details
