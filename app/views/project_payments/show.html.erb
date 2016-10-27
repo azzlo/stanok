@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_payment.project %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Payment:</strong>
-  <%= @project_payment.payment %>
-</p>
+  <p>
+    <strong>Project:</strong>
+    <%= @project_payment.project %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project_payment.description %>
-</p>
+  <p>
+    <strong>Payment:</strong>
+    <%= @project_payment.payment %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project_payment.user %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @project_payment.description %>
+  </p>
 
-<%= link_to 'Edit', edit_project_payment_path(@project_payment) %> |
-<%= link_to 'Back', project_payments_path %>
+  <p>
+    <strong>User:</strong>
+    <%= @project_payment.user %>
+  </p>
+
+  <%= link_to 'Edit', edit_project_payment_path(@project_payment) %> |
+  <%= link_to 'Back', project_payments_path %>
+
+</div>

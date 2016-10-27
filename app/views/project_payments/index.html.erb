@@ -1,33 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Project Payments</h1>
+  <h1>Project Payments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Payment</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @project_payments.each do |project_payment| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= project_payment.project %></td>
-        <td><%= project_payment.payment %></td>
-        <td><%= project_payment.description %></td>
-        <td><%= project_payment.user %></td>
-        <td><%= link_to 'Show', project_payment %></td>
-        <td><%= link_to 'Edit', edit_project_payment_path(project_payment) %></td>
-        <td><%= link_to 'Destroy', project_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Project</th>
+        <th>Payment</th>
+        <th>Description</th>
+        <th>User</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @project_payments.each do |project_payment| %>
+        <tr>
+          <td><%= project_payment.project %></td>
+          <td><%= project_payment.payment %></td>
+          <td><%= project_payment.description %></td>
+          <td><%= project_payment.user %></td>
+          <td><%= link_to 'Show', project_payment %></td>
+          <td><%= link_to 'Edit', edit_project_payment_path(project_payment) %></td>
+          <td><%= link_to 'Destroy', project_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Project Payment', new_project_payment_path %>
+  <br>
+
+  <%= link_to 'New Project Payment', new_project_payment_path %>
+
+</div>

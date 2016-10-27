@@ -1,37 +1,41 @@
-<%= form_for(project_payment) do |f| %>
-  <% if project_payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project_payment.errors.count, "error") %> prohibited this project_payment from being saved:</h2>
+<div class="container">
 
-      <ul>
-      <% project_payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_for(project_payment) do |f| %>
+    <% if project_payment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(project_payment.errors.count, "error") %> prohibited this project_payment from being saved:</h2>
+
+        <ul>
+        <% project_payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :project_id %>
+      <%= f.text_field :project_id %>
+    </div>
+
+    <div class="field">
+      <%= f.label :payment %>
+      <%= f.text_field :payment %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :project_id %>
-    <%= f.text_field :project_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :payment %>
-    <%= f.text_field :payment %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  
+</div>

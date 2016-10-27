@@ -1,34 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Client:</strong>
-  <%= @project.client %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <p>
+    <strong>Client:</strong>
+    <%= @project.client %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </p>
 
-<p>
-  <strong>Initial date:</strong>
-  <%= @project.initial_date %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </p>
 
-<p>
-  <strong>Final date:</strong>
-  <%= @project.final_date %>
-</p>
+  <p>
+    <strong>Initial date:</strong>
+    <%= @project.initial_date %>
+  </p>
 
-<p>
-  <strong>Total cost:</strong>
-  <%= @project.total_cost %>
-</p>
+  <p>
+    <strong>Final date:</strong>
+    <%= @project.final_date %>
+  </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <p>
+    <strong>Total cost:</strong>
+    <%= @project.total_cost %>
+  </p>
+
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+
+</div>
