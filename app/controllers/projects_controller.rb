@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    if @projects.length < 1
+      redirect_to new_project_url, notice: "Primero ¡Crea tu primer Proyecto!"
+    end
   end
 
   # GET /projects/1
@@ -71,4 +74,9 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:client_id, :name, :description, :initial_date, :final_date, :total_cost)
     end
+
+    def flash_message
+      flash[:notice] = "Primero ¡Crea un Poyecto!"
+    end
+
 end
