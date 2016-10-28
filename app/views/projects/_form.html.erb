@@ -13,37 +13,37 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :client_id %>
       <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
     </div>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :description %>
       <%= f.text_area :description , class: "materialize-textarea" %>
     </div>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :initial_date %>
       <%= f.date_select :initial_date %>
     </div>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :final_date %>
       <%= f.date_select :final_date %>
     </div>
 
-    <div class="field">
+    <div class="field input-field col s6">
       <%= f.label :total_cost %>
       <%= f.text_field :total_cost %>
     </div>
 
-    <div class="actions">
+    <div class="actions waves-effect waves-light btn lime darken-3">
       <%= f.submit %>
     </div>
   <% end %>
