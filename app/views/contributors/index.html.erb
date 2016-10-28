@@ -1,33 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Contributors</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Skills</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Colaboradores</h1>
 
-  <tbody>
-    <% @contributors.each do |contributor| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= contributor.name %></td>
-        <td><%= contributor.email %></td>
-        <td><%= contributor.phone %></td>
-        <td><%= contributor.skills %></td>
-        <td><%= link_to 'Show', contributor %></td>
-        <td><%= link_to 'Edit', edit_contributor_path(contributor) %></td>
-        <td><%= link_to 'Destroy', contributor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Skills</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @contributors.each do |contributor| %>
+        <tr>
+          <td><%= contributor.name %></td>
+          <td><%= contributor.email %></td>
+          <td><%= contributor.phone %></td>
+          <td><%= contributor.skills %></td>
+          <td><%= link_to 'Mostrar', contributor %></td>
+          <td><%= link_to 'Editar', edit_contributor_path(contributor) %></td>
+          <td><%= link_to 'Eliminar', contributor, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Contributor', new_contributor_path %>
+  <br>
+
+  <%= link_to 'Nuevo colaborador', new_contributor_path %>
+
+</div>

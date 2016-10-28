@@ -1,6 +1,10 @@
-<h1>Editing Contributor</h1>
 
-<%= render 'form', contributor: @contributor %>
+<div class="container">
+  <h1>Editar Colaborador</h1>
 
-<%= link_to 'Show', @contributor %> |
-<%= link_to 'Back', contributors_path %>
+  <%= render 'form', contributor: @contributor %>
+
+  <%= link_to 'Mostrar', @contributor %> |
+  <%= link_to 'Regresar', contributors_path %>
+
+</div>
