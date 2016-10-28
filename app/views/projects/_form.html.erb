@@ -15,7 +15,7 @@
 
     <div class="field">
       <%= f.label :client_id %>
-      <%= f.text_field :client_id %>
+      <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
     </div>
 
     <div class="field">
@@ -25,7 +25,7 @@
 
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_area :description , class: "materialize-textarea" %>
     </div>
 
     <div class="field">

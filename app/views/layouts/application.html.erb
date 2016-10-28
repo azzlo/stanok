@@ -19,8 +19,9 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
+        <li class="<%= active_if controller: 'clients' %>"> <%= link_to "Clientes", clients_path %></li>
         <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
-        <li class="<%= active_if controller: 'projects' %>"> <%= link_to "Proyectos", projects_path %></li>
+        <li class="<%= active_if controller: 'project' %>"> <%= link_to "Proyectos", projects_path %></li>
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
