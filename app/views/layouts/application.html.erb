@@ -14,13 +14,14 @@
 
     <header>
       <nav>
-    <div class="nav-wrapper teal lighten-2">
+    <div class="nav-wrapper teal lighten-2 valign-wrapper">
       <a href="#!" class="brand-logo center">Logo</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="left hide-on-med-and-down">
+      <ul class="left hide-on-med-and-down valign">
         <li><%= link_to "Usuarios", users_path %></li>
         <li><%= link_to "Colaboradores", contributors_path %> </li>
         <li class="active"> <%= link_to "Proyectos", projects_path %></li>
+
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -31,11 +32,22 @@
       </ul>
     </div>
   </nav>
+  </header>
 
-    </header>
-    <p class="notice"><%= notice %></p>
+    <p class="notice" ><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">print</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
 
         <footer class="page-footer teal lighten-2">
           <div class="container">
