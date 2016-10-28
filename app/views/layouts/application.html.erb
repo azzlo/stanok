@@ -17,10 +17,11 @@
     <div class="nav-wrapper teal lighten-2 valign-wrapper">
       <a href="#!" class="brand-logo center">Logo</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="left hide-on-med-and-down valign">
-        <li><%= link_to "Usuarios", users_path %></li>
-        <li><%= link_to "Colaboradores", contributors_path %> </li>
-        <li class="active"> <%= link_to "Proyectos", projects_path %></li>
+
+      <ul class="left hide-on-med-and-down">
+        <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
+        <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
+        <li class="<%= active_if controller: 'projects' %>"> <%= link_to "Proyectos", projects_path %></li>
 
 
       </ul>
@@ -34,8 +35,15 @@
   </nav>
   </header>
 
-    <p class="notice" ><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    
+    <% if flash[:notice]  %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
 
     <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
