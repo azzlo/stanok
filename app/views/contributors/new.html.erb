@@ -1,8 +1,9 @@
 <div class="container">
-  <h1>Nuevo colaborador</h1>
-
+  <h2>Nuevo colaborador</h2>
+<br>
   <%= render 'form', contributor: @contributor %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Regresar', contributors_path %></a>
 
-  <%= link_to 'Regresar', contributors_path %>
+
 
 </div>

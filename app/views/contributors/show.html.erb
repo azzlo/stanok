@@ -2,27 +2,64 @@
 
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @contributor.name %>
-  </p>
+  <div class="row">
+    <div class="col s12">
+       <div class="divider"></div>
+       <div class="section">
+         <h5 class="center-align"><%= @contributor.name %></h5>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @contributor.email %>
-  </p>
+       </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= @contributor.phone %>
-  </p>
+    <div class="row">
+      <div class="col s6">
+         <div class="divider"></div>
+         <div class="section">
+           <p>
+             <strong>Email:</strong>
+             <br>
+             <%= @contributor.email %>
+           </p>
 
-  <p>
-    <strong>Skills:</strong>
-    <%= @contributor.skills %>
-  </p>
 
-  <%= link_to 'Editar', edit_contributor_path(@contributor) %> |
-  <%= link_to 'Regresar', contributors_path %>
+         </div>
+      </div>
+      <div class="col s6">
+         <div class="divider"></div>
+         <div class="section">
+           <p>
+             <strong>Telefono:</strong>
+             <br>
+             <%= @contributor.phone %>
+           </p>
+
+
+         </div>
+      </div>
+    </div>
+
+        <div class="row">
+          <div class="col s12">
+             <div class="divider"></div>
+             <div class="section">
+               <p>
+                 <strong>Caracteristicas y habilidades:</strong>
+                 <br>
+                 <%= @contributor.skills %>
+               </p>
+
+             </div>
+          </div>
+        </div>
+
+
+
+
+
+<a class="waves-effect waves-light btn"  <%= link_to 'Editar', edit_contributor_path(@contributor) %></a>
+
+<a class="waves-effect waves-light btn"<%= link_to 'Regresar', contributors_path %></a>
+
 
 </div>

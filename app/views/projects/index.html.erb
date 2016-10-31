@@ -1,7 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Proyeto</h1>
+  <h2>Proyeto</h2>
 
   <table>
     <thead>
@@ -27,9 +27,13 @@
           <td><%= project.final_date %></td>
           <td><%= project.total_cost %></td>
           <td><%= ProjectStatus.find(project.project_status_id).name %></td>
-          <td><%= link_to 'Mostrar', project %></td>
-          <td><%= link_to 'Editar', edit_project_path(project) %></td>
-          <td><%= link_to 'Eliminar', project, method: :delete, data: { confirm: 'Esta seguro de querer eliminar?' } %></td>
+          <td>
+            <a class="waves-effect waves-light btn"<%= link_to 'Mostrar', project %></a>
+            </td>
+          <td>
+            <a class="waves-effect waves-light btn"<%= link_to 'Editar', edit_project_path(project) %></a></td>
+          <td>
+            <a class="waves-effect waves-light btn"<%= link_to 'Eliminar', project, method: :delete, data: { confirm: 'Esta seguro de querer eliminar?' } %></a></td>
         </tr>
       <% end %>
     </tbody>
@@ -37,8 +41,8 @@
 
   <br>
 
-  <%= link_to 'Nuevo proyecto', new_project_path %>
-
+  <a class="waves-effect waves-light btn"<%= link_to 'Nuevo proyecto', new_project_path %>
+</a>
 
 
 </div>
