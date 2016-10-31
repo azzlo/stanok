@@ -1,8 +1,9 @@
 <div class="container">
-  <h1>Editing Client</h1>
+  <h2>Editar Cliente</h2>
 
   <%= render 'form', client: @client %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Show', @client %></a>
+  <a class="waves-effect waves-light btn"<%= link_to 'Back', clients_path %></a>
 
-  <%= link_to 'Show', @client %> |
-  <%= link_to 'Back', clients_path %>
+
 </div>

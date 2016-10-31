@@ -1,8 +1,8 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Clients</h1>
-
+  <h2>Clientes</h2>
+<br>
   <table class="highlight bordered">
     <thead>
       <tr>
@@ -23,9 +23,12 @@
           <td><%= client.phone %></td>
           <td><%= client.email %></td>
           <td><%= client.address %></td>
-          <td><%= link_to 'Show', client %></td>
-          <td><%= link_to 'Edit', edit_client_path(client) %></td>
-          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><a class="waves-effect waves-light btn"<%= link_to 'Mostrar', client %></a>
+            </td>
+          <td><a class="waves-effect waves-light btn"<%= link_to 'Editar', edit_client_path(client) %></a>
+            </td>
+          <td><a class="waves-effect waves-light btn"<%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Estas seguro de Eliminar?' } %></a>
+            </td>
         </tr>
       <% end %>
     </tbody>
@@ -33,6 +36,6 @@
 
   <br>
 
-  <%= link_to 'New Client', new_client_path %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Nuevo Cliente', new_client_path %></a>
 
 </div>
