@@ -1,5 +1,6 @@
 class ProjectPaymentsController < ApplicationController
   before_action :set_project_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:new, :edit, :create, :update]
 
   # GET /project_payments
   # GET /project_payments.json
@@ -14,7 +15,8 @@ class ProjectPaymentsController < ApplicationController
 
   # GET /project_payments/new
   def new
-    @project_payment = ProjectPayment.new
+    #@project_payment = ProjectPayment.new
+    @project_payment = @project.project_payments.build
   end
 
   # GET /project_payments/1/edit
@@ -24,11 +26,13 @@ class ProjectPaymentsController < ApplicationController
   # POST /project_payments
   # POST /project_payments.json
   def create
-    @project_payment = ProjectPayment.new(project_payment_params)
+    #@project_payment = ProjectPayment.new(project_payment_params)
+    @project_payment = @project.project_payments.build(project_payment_params)
+    @project_payment.user_id = current_user.id
 
     respond_to do |format|
       if @project_payment.save
-        format.html { redirect_to @project_payment, notice: 'Project payment was successfully created.' }
+        format.html { redirect_to @project, notice: 'Project payment was successfully created.' }
         format.json { render :show, status: :created, location: @project_payment }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ProjectPaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @project_payment.update(project_payment_params)
-        format.html { redirect_to @project_payment, notice: 'Project payment was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Project payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_payment }
       else
         format.html { render :edit }
@@ -65,6 +69,10 @@ class ProjectPaymentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project_payment
       @project_payment = ProjectPayment.find(params[:id])
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

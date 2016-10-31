@@ -37,6 +37,13 @@
     <%= ProjectStatus.find(@project.project_status_id).name %>
   </p>
 
+  <p>
+    <strong>Contributors:</strong>
+    <%= Contributor.first.name %>
+    <br>
+    <%= link_to %>
+  </p>
+
   <%= link_to 'Editar', edit_project_path(@project) %> |
   <%= link_to 'Regresar', projects_path %>
 

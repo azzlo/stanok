@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :project_contributors
-  resources :project_payments
-  resources :projects
+  resources :projects do
+    resources :project_payments
+  end
   resources :contributors
   resources :clients do
     resources :projects
