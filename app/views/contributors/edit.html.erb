@@ -3,8 +3,11 @@
   <h1>Editar Colaborador</h1>
 
   <%= render 'form', contributor: @contributor %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Mostrar', @contributor %>
+  </a>
+  <a class="waves-effect waves-light btn"<%= link_to 'Regresar', contributors_path %>
+  </a>
+   
 
-  <%= link_to 'Mostrar', @contributor %> |
-  <%= link_to 'Regresar', contributors_path %>
 
 </div>

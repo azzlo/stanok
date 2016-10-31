@@ -3,8 +3,8 @@
   <h1>Editar Proyecto</h1>
 
   <%= render 'form', project: @project %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Mostrar', @project %></a>
+  <a class="waves-effect waves-light btn"<%= link_to 'Regresar', projects_path %></a>
 
-  <%= link_to 'Mostrar', @project %> |
-  <%= link_to 'Regresar', projects_path %>
 
 </div>

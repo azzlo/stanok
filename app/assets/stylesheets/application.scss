@@ -18,6 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
 }
 
 main {
@@ -26,4 +27,20 @@ main {
 
 .no-visible{
   display: none;
+}
+p{
+  font-size: 18px;
+}
+td {
+  font-size: 16px;
+}
+.btn{
+  font-size: 11px;
+
+}
+th{
+  font-size: 18px;
+}
+h5{
+  color:#666;
 }
