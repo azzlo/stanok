@@ -2,17 +2,17 @@
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>Nombre:</strong>
     <%= @client.name %>
   </p>
 
   <p>
-    <strong>Contact name:</strong>
+    <strong>Nombre del contacto:</strong>
     <%= @client.contact_name %>
   </p>
 
   <p>
-    <strong>Phone:</strong>
+    <strong>Telefono:</strong>
     <%= @client.phone %>
   </p>
 
@@ -22,11 +22,13 @@
   </p>
 
   <p>
-    <strong>Address:</strong>
+    <strong>Direccion:</strong>
     <%= @client.address %>
   </p>
 
-  <%= link_to 'Edit', edit_client_path(@client) %> |
-  <%= link_to 'Back', clients_path %>
+  <a class="waves-effect waves-light btn"<%= link_to 'Edit', edit_client_path(@client) %> </a>
+  <a class="waves-effect waves-light btn"<%= link_to 'Back', clients_path %></a>
+
+
 
 </div>

@@ -14,7 +14,7 @@
 
     <header>
       <nav>
-    <div class="nav-wrapper teal lighten-2 valign-wrapper">
+    <div class="nav-wrapper grey darken-4 valign-wrapper">
       <a href="#!" class="brand-logo center">Logo</a>
 
       <ul class="left hide-on-med-and-down">
@@ -41,8 +41,11 @@
     <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
     <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li class="<%= active_if controller: 'welcome' %>"><%= link_to "Inicio", root_path %></li>
+    <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
+    <li class="<%= active_if controller: 'clients' %>"> <%= link_to "Clientes", clients_path %></li>
+    <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
+    <li class="<%= active_if controller: 'projects' %>"> <%= link_to "Proyectos", projects_path %></li>
   </ul>
   <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -71,7 +74,7 @@
     </ul>
   </div>
 
-        <footer class="page-footer teal lighten-2">
+        <footer class="page-footer grey darken-3">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -81,7 +84,7 @@
 
             </div>
           </div>
-          <div class="footer-copyright teal darken-1">
+          <div class="footer-copyright grey darken-4">
             <div class="container">
             © 2016 Copyright Azzlo! Derechos Reservados
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
