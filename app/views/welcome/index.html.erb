@@ -20,110 +20,43 @@
     </div>
     <br><br>
 
-
-
         <h4 >Proyectos en Produccion</h4>
         <br>
+        <% @completed_projects.each do |project| %>
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel hoverable grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="pedro.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <span class="black-text">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th data-field="id">Nombre proyecto</th>
+                          <th data-field="name">Descripcion proyecto </th>
 
+                        </tr>
+                      </thead>
 
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
-      <div class="card-panel hoverable grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-          <div class="col s2">
-            <img src="pedro.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                      <tbody>
+                        <tr>
+                          <td><%= link_to project.name, project%></td>
+                          <td><%= project.description %></td>
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col s10">
-            <span class="black-text">
-              <table>
-                <thead>
-                  <tr>
-                    <th data-field="id">Nombre proyecto</th>
-                    <th data-field="name">Descripcion proyecto </th>
+        <% end %>
 
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-
-                  </tr>
-
-                </tbody>
-              </table>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
-    <div class="card-panel hoverable grey lighten-5 z-depth-1">
-      <div class="row valign-wrapper">
-        <div class="col s2">
-          <img src="pedro.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-        </div>
-        <div class="col s10">
-          <span class="black-text">
-            <table>
-              <thead>
-                <tr>
-                  <th data-field="id">Nombre proyecto</th>
-                  <th data-field="name">Descripcion proyecto </th>
-
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>Alvin</td>
-                  <td>Eclair</td>
-
-                </tr>
-
-              </tbody>
-            </table>
-
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col s12 m8 offset-m2 l6 offset-l3">
-  <div class="card-panel hoverable grey lighten-5 z-depth-1">
-    <div class="row valign-wrapper">
-      <div class="col s2">
-        <img src="pedro.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-      </div>
-      <div class="col s10">
-        <span class="black-text">
-          <table>
-            <thead>
-              <tr>
-                <th data-field="id">Nombre proyecto</th>
-                <th data-field="name">Descripcion proyecto </th>
-
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-
-              </tr>
-
-            </tbody>
-          </table>
-
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
 
 <br>
 

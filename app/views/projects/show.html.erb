@@ -4,7 +4,7 @@
 
   <p>
     <strong>Client:</strong>
-    <%= @project.client %>
+    <%= Client.find(@project.client).name %>
   </p>
 
   <p>
@@ -30,6 +30,11 @@
   <p>
     <strong>Total cost:</strong>
     <%= @project.total_cost %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= ProjectStatus.find(@project.project_status_id).name %>
   </p>
 
   <%= link_to 'Editar', edit_project_path(@project) %> |

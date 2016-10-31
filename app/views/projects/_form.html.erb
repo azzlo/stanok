@@ -14,8 +14,8 @@
     <% end %>
 
     <div class="field input-field col s6">
-      <%= f.label :client_id %>
       <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
+      <%= f.label :client_id %>
     </div>
 
     <div class="field input-field col s6">
@@ -41,6 +41,11 @@
     <div class="field input-field col s6">
       <%= f.label :total_cost %>
       <%= f.text_field :total_cost %>
+    </div>
+
+    <div class="field input-field col s6">
+      <%= f.select :project_status_id , ProjectStatus.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
+      <%= f.label :project_status_id %>
     </div>
 
     <div class="actions waves-effect waves-light btn lime darken-3">
