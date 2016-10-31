@@ -13,7 +13,6 @@
        </p>
      </div>
     </div>
-
   </div>
 
   <div class="row">
@@ -26,7 +25,6 @@
          </p>
        </div>
     </div>
-
   </div>
   <div class="row">
     <div class="col s4">
@@ -60,9 +58,26 @@
       </div>
     </div>
   </div>
-  <a class="waves-effect waves-light btn">Agregar abono</a>
-  <br>
-  <br>
+  <table class="highlight bordered">
+    <thead>
+      <tr>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @project.project_payments.each do |payment| %>
+        <tr>
+          <td><strong>$ <%= payment.payment %></strong></td>
+          <td><%= payment.description %></td>
+          <td><%= link_to 'Destroy', project_project_payment_path(@project, payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "Agregar Abono", new_project_project_payment_path(@project), class: "waves-effect waves-light btn" %>
 
   <a class="waves-effect waves-light btn"<%= link_to 'Editar', edit_project_path(@project) %></a>
   <a class="waves-effect waves-light btn"<%= link_to 'Regresar', projects_path %></a>

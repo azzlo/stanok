@@ -1,6 +1,6 @@
 class ProjectPaymentsController < ApplicationController
   before_action :set_project_payment, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:new, :edit, :create, :update]
+  before_action :set_project, only: [:show, :new, :edit, :create, :update]
 
   # GET /project_payments
   # GET /project_payments.json
@@ -60,7 +60,7 @@ class ProjectPaymentsController < ApplicationController
   def destroy
     @project_payment.destroy
     respond_to do |format|
-      format.html { redirect_to project_payments_url, notice: 'Project payment was successfully destroyed.' }
+      format.html { redirect_to @project, notice: 'Project payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
