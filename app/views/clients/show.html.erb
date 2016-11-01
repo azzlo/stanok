@@ -1,33 +1,78 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
+  <br>
+  <br>
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s2">
+              <i class="large material-icons amber-text">assignment_ind</i>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @client.name %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Nombre
+                    </p>
+                </div>
+              </div>
+              <div class="col s4">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @client.phone %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Telefono
+                    </p>
+                </div>
 
-  <p>
-    <strong>Nombre:</strong>
-    <%= @client.name %>
-  </p>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @client.contact_name %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Nombre de contacto
+                    </p>
+                </div>
 
-  <p>
-    <strong>Nombre del contacto:</strong>
-    <%= @client.contact_name %>
-  </p>
 
-  <p>
-    <strong>Telefono:</strong>
-    <%= @client.phone %>
-  </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s4">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @client.email %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Correo
+                    </p>
+                </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @client.email %>
-  </p>
 
-  <p>
-    <strong>Direccion:</strong>
-    <%= @client.address %>
-  </p>
+              </div>
+              <div class="col s8">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @client.address %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Direccion
+                    </p>
+                </div>
 
-  <a class="waves-effect waves-light btn"<%= link_to 'Edit', edit_client_path(@client) %> </a>
-  <a class="waves-effect waves-light btn"<%= link_to 'Back', clients_path %></a>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+<br>
+<br>
+
+
+  <a class="waves-effect waves-light btn"<%= link_to 'Editar', edit_client_path(@client) %> </a>
+  <a class="waves-effect waves-light btn"<%= link_to 'Regresar', clients_path %></a>
 
 
 

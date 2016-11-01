@@ -1,22 +1,54 @@
 <div class="container">
+  <br>
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s2">
+              <i class="large material-icons amber-text">perm_identity</i>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @user.name %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Nombre
+                    </p>
+                </div>
+              </div>
+              <div class="col s4">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @user.email %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Correo
+                    </p>
+                </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @user.state %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Estado
+                    </p>
+                </div>
 
-  <p>
-    <strong>State:</strong>
-    <%= @user.state %>
-  </p>
 
-  <%= link_to 'Editar', edit_user_path(@user) %> |
-  <%= link_to 'Regresar', users_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+<br>
+
+<a class="waves-effect waves-light btn"<%= link_to 'Editar', edit_user_path(@user) %> </a>
+<a class="waves-effect waves-light btn"  <%= link_to 'Regresar', users_path %></a>
+
+  
+
 
 </div>
