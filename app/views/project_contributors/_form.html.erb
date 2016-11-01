@@ -18,7 +18,11 @@
 
   <div class="field input-field col s6">
     <%= f.label :percentage %>
-    <%= f.text_field :percentage %>
+    <%= f.range_field :percentage, min: 0, max: @rest_percentage.to_f %>
+    <p>Project: <%= @project.percentage.to_f %></p>
+    <p>Contributors: <%= @contributors_percentage %></p>
+    <p>Rest: <%= @rest_percentage.to_f %></p>
+
   </div>
 
   <div class="actions">

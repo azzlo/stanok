@@ -59,21 +59,24 @@
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header">
-        <span class="new badge">4</span><i class="medium material-icons">assignment</i>
-        Hay <span class="money">3</span> colaboradores
-      </div>
+      <div class="collapsible-header"><span class="new badge">4</span><i class="medium material-icons">assignment</i>Colaboradores</div>
       <div class="collapsible-body center-align">
         <table class="highlight bordered">
-
           <tbody>
             <% @project.project_contributors.each do |contributor| %>
             <tr>
               <td><strong><%= Contributor.find(contributor.contributor_id).name %></strong></td>
               <td><%= contributor.percentage %> %</td>
-              <td><%= link_to 'Destroy', project_project_payment_path(@project, contributor), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= @project.total_cost * contributor.percentage * 0.01%></td>
+              <td><%= link_to 'Quitar', project_project_payment_path(@project, contributor), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
+            <tr>
+              <td>azzlo</td>
+              <td><%= @project.percentage %> %</td>
+              <td><%= @project.total_cost * @project.percentage * 0.01%></td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
         <%= link_to "Agregar Colaborador", new_project_project_contributor_path(@project), class: "waves-effect waves-light btn" %>
@@ -84,8 +87,8 @@
 
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header"><span class="new badge">4</span><i class="material-icons">assessment</i>
-        Hay <span class="money">$1000</span> y faltan <span class="money">$2000</span>
+      <div class="collapsible-header"><span class="new badge" data-badge-caption="Pagos">4</span><i class="material-icons">assessment</i>
+        Hay <span class="money">$<%= @project.project_payments.sum(:payment) %></span> y faltan <span class="money"><%= @project.total_cost - @project.project_payments.sum(:payment)%> por cobrar </span>
       </div>
       <div class="collapsible-body center-align">
         <table class="highlight bordered">

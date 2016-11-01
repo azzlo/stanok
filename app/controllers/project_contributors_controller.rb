@@ -15,6 +15,8 @@ class ProjectContributorsController < ApplicationController
 
   # GET /project_contributors/new
   def new
+    @contributors_percentage = @project.project_contributors.sum(:percentage)
+    @rest_percentage = 100 - @project.percentage.to_f - @contributors_percentage
     #@project_contributor = ProjectContributor.new
     @project_contributor = @project.project_contributors.build
   end

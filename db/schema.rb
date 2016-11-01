@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031155918) do
+ActiveRecord::Schema.define(version: 20161101191401) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20161031155918) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "project_status_id"
+    t.float    "percentage"
     t.index ["client_id"], name: "index_projects_on_client_id"
     t.index ["project_status_id"], name: "index_projects_on_project_status_id"
   end

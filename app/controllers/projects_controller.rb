@@ -72,7 +72,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:client_id, :name, :description, :initial_date, :final_date, :total_cost, :project_status_id)
+      params.require(:project).permit(:client_id, :name, :description, :initial_date, :final_date, :total_cost, :project_status_id, :percentage)
     end
 
     def flash_message
