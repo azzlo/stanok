@@ -1,10 +1,10 @@
-<%= form_for(project_contributor) do |f| %>
-  <% if project_contributor.errors.any? %>
+<%= form_for([@project, @project_contributor]) do |f| %>
+  <% if project_project_contributor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(project_contributor.errors.count, "error") %> prohibited this project_contributor from being saved:</h2>
+      <h2><%= pluralize(project_project_contributor.errors.count, "error") %> prohibited this project_contributor from being saved:</h2>
 
       <ul>
-      <% project_contributor.errors.full_messages.each do |message| %>
+      <% project_project_contributor.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field input-field col s6">
-    <%= f.label :project_id %>
-    <%= f.text_field :project_id %>
-  </div>
-
-  <div class="field input-field col s6">
+    <%= f.select :contributor_id , Contributor.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
     <%= f.label :contributor_id %>
-    <%= f.text_field :contributor_id %>
   </div>
 
   <div class="field input-field col s6">
