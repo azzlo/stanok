@@ -11,26 +11,36 @@
         </ul>
       </div>
     <% end %>
+    <div class="row">
+      <div class="field input-field col s12 m10 l8">
+        <i class="material-icons prefix">mode_edit</i>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field input-field col s12 m6 l6">
+        <i class="material-icons prefix">email</i>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
 
-    <div class="field input-field col s6">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="field input-field col s12 m6 l5">
+        <i class="material-icons prefix">phone</i>
+        <%= f.label :phone %>
+        <%= f.number_field :phone %>
+      </div>
+    </div>
+    <div class="row">
+
+          <div class="field input-field col s12 m12 l10">
+            <i class="material-icons prefix">person_pin</i>
+            <%= f.label :skills %>
+            <%= f.text_field :skills %>
+          </div>
     </div>
 
-    <div class="field input-field col s6">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-
-    <div class="field input-field col s6">
-      <%= f.label :phone %>
-      <%= f.number_field :phone %>
-    </div>
-
-    <div class="field input-field col s6">
-      <%= f.label :skills %>
-      <%= f.text_field :skills %>
-    </div>
+    <br>
 
     <div class="actions waves-effect waves-light btn lime darken-3">
       <%= f.submit %>

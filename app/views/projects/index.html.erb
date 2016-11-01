@@ -23,10 +23,10 @@
 
     <tbody>
       <% @projects.each do |project| %>
-      
+
         <tr>
           <td><%= Client.find(project.client).name %></td>
-          <td><%= project.name %></td>
+          <a href="<%= project %>"><td><%= project.name %></td></a>
           <td><%= project.description %></td>
           <td><%= project.initial_date %></td>
           <td><%= project.final_date %></td>
@@ -40,6 +40,8 @@
 
 
       <% end %>
+
+
     </tbody>
   </table>
 

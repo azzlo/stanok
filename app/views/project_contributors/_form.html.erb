@@ -1,28 +1,29 @@
-<%= form_for([@project, @project_contributor]) do |f| %>
-  <% if project_project_contributor.errors.any? %>
+<%= form_for(project_contributor) do |f| %>
+  <% if project_contributor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(project_project_contributor.errors.count, "error") %> prohibited this project_contributor from being saved:</h2>
+      <h2><%= pluralize(project_contributor.errors.count, "error") %> prohibited this project_contributor from being saved:</h2>
 
       <ul>
-      <% project_project_contributor.errors.full_messages.each do |message| %>
+      <% project_contributor.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field input-field col s6">
-    <%= f.select :contributor_id , Contributor.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
-    <%= f.label :contributor_id %>
+  <div class="field ">
+    <%= f.label :project_id %>
+    <%= f.text_field :project_id %>
   </div>
 
-  <div class="field input-field col s6">
-    <%= f.label :percentage %>
-    <%= f.range_field :percentage, min: 0, max: @rest_percentage.to_f %>
-    <p>Project: <%= @project.percentage.to_f %></p>
-    <p>Contributors: <%= @contributors_percentage %></p>
-    <p>Rest: <%= @rest_percentage.to_f %></p>
+  <div class="field">
+    <%= f.label :contributor_id %>
+    <%= f.text_field :contributor_id %>
+  </div>
 
+  <div class="field">
+    <%= f.label :percentage %>
+    <%= f.text_field :percentage %>
   </div>
 
   <div class="actions">
