@@ -13,34 +13,84 @@
  *= require_tree .
  *= require_self
  */
+
 @import "materialize";
+
+$text-mark: #00acc1;
+
+a, a:visited{
+  color: $text-mark;
+}
+
+a:hover{
+  background: none;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-size: 16px;
+}
 
+footer{
+  margin-top: 4em !important;
 }
 
 main {
   flex: 1 0 auto;
 }
 
-.no-visible{
-  display: none;
-}
 p{
-  font-size: 18px;
+  font-size: 1em;
 }
+
 td {
   font-size: 16px;
 }
-.btn{
-  font-size: 11px;
 
-}
 th{
   font-size: 18px;
 }
+
 h5{
   color:#666;
+}
+
+#nav-mobile{
+  line-height: 64px;
+}
+#nav-mobile a, #nav-mobile a:visited{
+  color: white;
+  font-weight: bold;
+}
+
+#nav-mobile li{
+  transition: background-color .3s;
+}
+
+#nav-mobile li:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#nav-mobile li.active{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.btn a, .btn:visited{
+  color: white;
+  font-size: 11px;
+}
+
+.no-visible{
+  display: none;
+}
+
+
+.pharagraph-reduced{
+  margin: 1em;
 }
