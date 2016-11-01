@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
-  resources :project_contributors
   resources :projects do
     resources :project_payments
+    resources :project_contributors
   end
   resources :contributors
   resources :clients do
