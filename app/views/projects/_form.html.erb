@@ -12,37 +12,62 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="field input-field col s6">
-      <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
-      <%= f.label :client_id %>
+    <div class="row">
+      <div class="field input-field col s10 m6 l5">
+         <i class="large material-icons prefix">assignment_ind</i>
+        <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
+        <%= f.label :client_id %>
+      </div>
+      <div class="input-field col s10 m6 5">
+        <i class="large material-icons prefix">mode_edit</i>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
     </div>
-
-    <div class="field input-field col s6">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <div class="row">
+      <div class="field input-field col s12 m11 l10">
+        <i class="large material-icons prefix">list</i>
+        <%= f.label :description %>
+        <%= f.text_area :description , class: "materialize-textarea" %>
+      </div>
     </div>
+    <div class="row">
+      <div class="field input-field col s8 m6 l4">
+        <br>
+        <br>
+        <i class="large material-icons prefix">today</i>
+        <%= f.date_field :initial_date,class:"datepicker" %>
+        <%= f.label :initial_date %>
+      </div>
+      <div class="field input-field col s8 m6 l4">
+        <br>
+        <br>
+        <i class="large material-icons prefix">today</i>
+        <%= f.label :final_date %>
+        <%= f.date_field :final_date, class:"datepicker" %>
+      </div>
 
-    <div class="field input-field col s6">
-      <%= f.label :description %>
-      <%= f.text_area :description , class: "materialize-textarea" %>
+            <div class="field input-field col s8 m6 l4">
+              <br>
+              <br>
+              <i class="large material-icons prefix">credit_card</i>
+              <%= f.label :total_cost %>
+              <%= f.text_field :total_cost %>
+            </div>
+
     </div>
+    <div class="row">
+            <br>
+            <div class="col l3">
 
-    <div class="field input-field col s6">
-      <%= f.label :initial_date %>
-      <%= f.date_select :initial_date %>
+            </div>
+            <div class="field input-field col s12 m8 l6">
+              <i class="large material-icons prefix">warning</i>
+              <%= f.select :project_status_id , ProjectStatus.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
+              <%= f.label :project_status_id %>
+            </div>
+
     </div>
-
-    <div class="field input-field col s6">
-      <%= f.label :final_date %>
-      <%= f.date_select :final_date %>
-    </div>
-
-    <div class="field input-field col s6">
-      <%= f.label :total_cost %>
-      <%= f.text_field :total_cost %>
-    </div>
-
     <div class="field input-field col s6">
       <p class="range-field">
         <%= f.range_field :percentage, min: 0, max: 100 %>
@@ -53,11 +78,8 @@
       <%= f.select :project_status_id , ProjectStatus.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
       <%= f.label :project_status_id %>
     </div>
-
     <div class="actions waves-effect waves-light btn lime darken-3">
       <%= f.submit %>
     </div>
-  <% end %>
-
-
+    <% end %>
 </div>
