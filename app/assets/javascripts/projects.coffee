@@ -5,3 +5,4 @@
 #Carga de CoffeeScript con turbolinks
 $(document).on 'turbolinks:load', ->
   $('select').material_select();
+  $('.collapsible').collapsible();

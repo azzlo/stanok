@@ -58,7 +58,14 @@
   </div>
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header"><span class="new badge">4</span><i class="medium material-icons">assignment</i>Colaboradores</div>
+      <div class="collapsible-header">
+        <span class="new badge">4</span>
+        <i class="medium material-icons">people</i>
+        Asignado a
+        <% @project.project_contributors.each do |contributor| %>
+          <%= Contributor.find(contributor.contributor_id).name + ","%>
+        <% end %>
+      </div>
       <div class="collapsible-body center-align">
         <table class="highlight bordered">
           <tbody>
@@ -78,7 +85,7 @@
             </tr>
           </tbody>
         </table>
-        <%= link_to "Agregar Colaborador", new_project_project_contributor_path(@project), class: "waves-effect waves-light btn" %>
+        <%= link_to "Agregar Colaborador", new_project_project_contributor_path(@project), class: "add-btn waves-effect waves-light btn" %>
       </div>
 
     </li>
@@ -109,7 +116,7 @@
             <% end %>
           </tbody>
         </table>
-        <%= link_to "Agregar Abono", new_project_project_payment_path(@project), class: "waves-effect waves-light btn" %>
+        <%= link_to "Agregar Abono", new_project_project_payment_path(@project), class: "add-btn waves-effect waves-light btn" %>
       </div>
 
     </li>

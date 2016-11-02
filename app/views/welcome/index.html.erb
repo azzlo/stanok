@@ -1,133 +1,90 @@
 
-        <div class="container">
-        <h2 class="center-align">Bienvenido a Azzlo!</h2>
-        <br>
-        <br>
-        <div class="row">
-      <div class="col s6 m3 center-align">
-        <a class="btn-floating btn-large waves-effect waves-light  blue darken-3"><i class="large material-icons">perm_identity</i></a>
+<div class="container">
+<br>
+<br>
+<h4><%= @runing_projects.count %> Proyectos en Produccion</h4>
+<% @runing_projects.each do |project| %>
+  <a href="<%= project_path(project) %>">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="card-panel hoverable grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+          <h4><%= project.name %></h4>
+          para
+          <strong><%= project.client.name %></strong>
+        </div>
       </div>
-      <div class="col s6 m3 center-align">
-        <a class="btn-floating btn-large waves-effect waves-light lime accent-2"><i class="large material-icons">contacts</i></a>
-      </div>
-      <div class="col s6 m3 center-align">
-        <a class="btn-floating btn-large waves-effect waves-light brown darken-1"><i class="large material-icons">settings</i></a>
-      </div>
-      <div class="col s6 m3 center-align">
-        <a class="btn-floating btn-large waves-effect waves-light red "><i class="large material-icons">add</i></a>
-      </div>
-
     </div>
-    <br><br>
-
-        <h4 >Proyectos en Produccion</h4>
-        <br>
-        <% @completed_projects.each do |project| %>
-        <a href="<%= project%>">
-          <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <div class="card-panel hoverable grey lighten-5 z-depth-1">
-              <div class="row valign-wrapper">
-                <div class="col s2">
-                  <img src="<%= asset_path "pedro.jpg"%>" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                </div>
-                <div class="col s10">
-                  <span class="black-text">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th data-field="id">Nombre proyecto</th>
-                          <th data-field="name">Descripcion proyecto </th>
-
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr>
-                          <td><%= link_to project.name, project%></td>
-                          <td><%= project.description %></td>
-
-                        </tr>
-
-                      </tbody>
-                    </table>
-
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <% end %>
-
+  </a>
+<% end %>
 
 <br>
 
 <div class="row">
   <div class="col s6">
-    <h2><%= Project.count %> Proyectos</h2>
-    <h3>10 Finished</h3>
-    <h4>40 Runing</h4>
+    <h3><%= Project.count %> Proyectos</h3>
+    <h4 class="green-text"><%= @completed_projects.count %> Terminados</h4>
+    <h5 class="orange-text"><%= @paused_projects.count %> Pausados</h5>
   </div>
-  Hola
   <div class="col s6">
-
+    <h3>$ <%= @projects.sum(:total_cost) %></h3>
+    <h4 class="green-text">$ <%= @projects.where(:project_status_id => 4).sum(:total_cost) %> en ingresos</h4>
+    <h5 class="orange-text"><%= @projects.where(:project_status_id => [1,2,3]) %> Pausados</h5>
   </div>
 </div>
 
 <div class="row">
-     <div class="col s12 m6">
-       <table class="striped">
-        <thead>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="price">Item Price</th>
-          </tr>
-        </thead>
+<div class="col s12 m6">
+ <table class="striped">
+  <thead>
+    <tr>
+        <th data-field="id">Name</th>
+        <th data-field="price">Item Price</th>
+    </tr>
+  </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-      </table>
-     </div>
-     <div class="col s12 m6">
-       <table class="striped">
-        <thead>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="price">Item Price</th>
-          </tr>
-        </thead>
+  <tbody>
+    <tr>
+      <td>Alvin</td>
+      <td>$0.87</td>
+    </tr>
+    <tr>
+      <td>Alan</td>
+      <td>$3.76</td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+      <td>$7.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="col s12 m6">
+ <table class="striped">
+  <thead>
+    <tr>
+        <th data-field="id">Name</th>
+        <th data-field="price">Item Price</th>
+    </tr>
+  </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-      </table>
-     </div>
+  <tbody>
+    <tr>
+      <td>Alvin</td>
+      <td>$0.87</td>
+    </tr>
+    <tr>
+      <td>Alan</td>
+      <td>$3.76</td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+      <td>$7.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-   </div>
+</div>
 
 
-        </div>
+  </div>
