@@ -66,6 +66,7 @@
       <%= f.select :project_status_id , ProjectStatus.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
       <%= f.label :project_status_id %>
     </div>
+    <br>
     <div class="actions waves-effect waves-light btn lime darken-3">
       <%= f.submit %>
     </div>

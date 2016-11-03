@@ -13,21 +13,29 @@
       </div>
     <% end %>
 
-    <div class="field input-field col s6">
-      <%= f.label :project_id %>
-      <%= f.text_field :project_id %>
-    </div>
+<div class="row">
+  <div class="field input-field col s6">
+      <i class="material-icons prefix">vpn_key</i>
+    <%= f.label :project_id %>
+    <%= f.text_field :project_id %>
+  </div>
+  <div class="field input-field col s6">
+    <i class="material-icons prefix">payment</i>
+    <%= f.label :payment %>
+    <%= f.text_field :payment %>
+  </div>
 
-    <div class="field input-field col s6">
-      <%= f.label :payment %>
-      <%= f.text_field :payment %>
-    </div>
+</div>
+<div class="row">
+  <div class="field input-field col s9">
+    <i class="material-icons prefix">description</i>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+</div>
 
-    <div class="field input-field col s6">
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
 
+<br>
     <div class="actions waves-effect waves-light btn">
       <%= f.submit %>
     </div>

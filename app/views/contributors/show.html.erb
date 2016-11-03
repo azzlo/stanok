@@ -1,59 +1,62 @@
 <div class="container">
 
   <p id="notice"><%= notice %></p>
+<br>
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s2">
+              <i class="large material-icons amber-text">perm_identity</i>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @contributor.name %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Nombre
+                    </p>
+                </div>
+              </div>
+              <div class="col s4">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @contributor.email %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Correo
+                    </p>
+                </div>
 
-  <div class="row">
-    <div class="col s12">
-       <div class="divider"></div>
-       <div class="section">
-         <h5 class="center-align"><%= @contributor.name %></h5>
-
-       </div>
-    </div>
-  </div>
-
-    <div class="row">
-      <div class="col s6">
-         <div class="divider"></div>
-         <div class="section">
-           <p>
-             <strong>Email:</strong>
-             <br>
-             <%= @contributor.email %>
-           </p>
+              </div>
+              <div class="col s3">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @contributor.phone %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Telefono
+                    </p>
+                </div>
 
 
-         </div>
-      </div>
-      <div class="col s6">
-         <div class="divider"></div>
-         <div class="section">
-           <p>
-             <strong>Telefono:</strong>
-             <br>
-             <%= @contributor.phone %>
-           </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="divider"></div>
+                <div class="section">
+                    <h5 class="center-align"><%= @contributor.skills %></h5>
+                    <p class="pharagraph-reduced center-align">
+                      Habilidades
+                    </p>
+                </div>
 
-
-         </div>
-      </div>
-    </div>
-
-        <div class="row">
-          <div class="col s12">
-             <div class="divider"></div>
-             <div class="section">
-               <p>
-                 <strong>Caracteristicas y habilidades:</strong>
-                 <br>
-                 <%= @contributor.skills %>
-               </p>
-
-             </div>
+              </div>
+            </div>
           </div>
         </div>
 
 
+<br>
+<br>
 
 
 
