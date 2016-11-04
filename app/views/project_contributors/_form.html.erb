@@ -10,21 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field input-field col s6">
+  <br>
+  <br>
+<div class="row">
+  <div class="field input-field col s12 m10 l8">
     <%= f.select :contributor_id , Contributor.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
-    <%= f.label :contributor_id %>
+    <%= f.label :Colaborador %>
   </div>
+</div>
 
-  <div class="field input-field col s6">
+<div class="row">
+  <div class="field input-field col s12 m12 l10">
     <br>
-    <%= f.label :percentage %>
+    <%= f.label :Porcentaje %>
     <p class="range-field">
     <%= f.range_field :percentage, min: 0, max: @rest_percentage.to_f %>
     </p>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<br>
+<a class="waves-effect waves-light btn grey darken-3"><%= f.submit %></a>
+
 <% end %>

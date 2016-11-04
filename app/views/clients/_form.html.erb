@@ -15,13 +15,13 @@
     <div class="row">
       <div class="field input-field col s10 m6 l5">
         <i class="material-icons prefix">mode_edit</i>
-        <%= f.label :name %>
+        <%= f.label :Nombre %>
         <%= f.text_field :name %>
       </div>
 
       <div class="field input-field col s12 m6 l6">
         <i class="material-icons prefix">account_circle</i>
-        <%= f.label :contact_name %>
+        <%= f.label :Nombre_de_contacto %>
         <%= f.text_field :contact_name %>
       </div>
     </div>
@@ -29,13 +29,13 @@
     <div class="row">
       <div class="field input-field col s8 m5 l4">
         <i class="material-icons prefix">call</i>
-        <%= f.label :phone %>
+        <%= f.label :Telefono %>
         <%= f.number_field :phone %>
       </div>
 
       <div class="field input-field col s12 m6 l6">
         <i class="material-icons prefix">email</i>
-        <%= f.label :email %>
+        <%= f.label :Correo_electronico %>
         <%= f.text_field :email %>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <div class="field input-field col s12 m12 l12">
         <i class="material-icons prefix">
 location_on</i>
-        <%= f.label :address %>
+        <%= f.label :Direccion %>
         <%= f.text_field :address %>
       </div>
     </div>
@@ -52,7 +52,7 @@ location_on</i>
 
 
 
-    <div class="actions waves-effect waves-light btn lime darken-3">
+    <div class="actions waves-effect waves-light btn grey darken-3">
       <%= f.submit %>
     </div>
   <% end %>
