@@ -2,16 +2,34 @@
 <div class="container">
 <br>
 <br>
-<h4><%= @running_projects.count %> Proyectos en Produccion</h4>
+<h4 class="center-align"><%= @running_projects.count %> Proyectos en Produccion</h4>
 <% @running_projects.each do |project| %>
+<br>
+
   <a href="<%= project_path(project) %>">
-    <div class="col s12 m12 offset-m2 l12 offset-l3">
-      <div class="card-panel hoverable grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-          <p><%= project.name %></p>
-          <p class="right"><%= project.client.name %></p>
-          <p><%= project.final_date %></p>
-          <p>$<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%</p>
+    <div class="col s12 m12 offset-m2 l12 offset-l3 grey">
+      <div class="inicialinfo card-panel hoverable grey lighten-5 z-depth-3 brown-text text-darken-2">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <h4 class="center-align"><%= project.name %></h4>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col s4 center-align ">
+
+            <p class="ini"><%= project.client.name %></p>
+          </div>
+          <div class="col s4 center-align">
+              <p class="ini"><%= project.final_date %></p>
+          </div>
+          <div class="col s4 center-align">
+            <strong>
+              <p class="ini">$<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%</p>
+            </strong>
+
+          </div>
 
         </div>
       </div>
@@ -20,7 +38,7 @@
 <% end %>
 
 <br>
-
+<br>
 <div class="row">
 <div class="col s12 m6">
  <table class="striped">
