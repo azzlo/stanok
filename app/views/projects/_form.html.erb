@@ -16,18 +16,18 @@
       <div class="field input-field col s10 m6 l5">
          <i class="large material-icons prefix">assignment_ind</i>
         <%= f.select :client_id , Client.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
-        <%= f.label :client_id %>
+        <%= f.label :Cliente %>
       </div>
       <div class="input-field col s10 m6 5">
         <i class="large material-icons prefix">title</i>
-        <%= f.label "Project Name" %>
+        <%= f.label "Nombre del proyecto" %>
         <%= f.text_field :name %>
       </div>
     </div>
     <div class="row">
       <div class="field input-field col s12 m11 l10">
         <i class="large material-icons prefix">list</i>
-        <%= f.label :description %>
+        <%= f.label :Descripcion %>
         <%= f.text_area :description , class: "materialize-textarea" %>
       </div>
     </div>
@@ -37,20 +37,20 @@
         <br>
         <i class="large material-icons prefix">today</i>
         <%= f.date_field :initial_date,class:"datepicker" %>
-        <%= f.label :initial_date %>
+        <%= f.label :Fecha_de_inicio %>
       </div>
       <div class="field input-field col s8 m6 l4">
         <br>
         <br>
         <i class="large material-icons prefix">today</i>
-        <%= f.label :final_date %>
+        <%= f.label :Fecha_de_entrega %>
         <%= f.date_field :final_date, class:"datepicker" %>
       </div>
       <div class="field input-field col s8 m6 l4">
         <br>
         <br>
         <i class="large material-icons prefix">attach_money</i>
-        <%= f.label :total_cost %>
+        <%= f.label :Costo_total %>
         <%= f.text_field :total_cost %>
       </div>
     </div>
@@ -64,10 +64,10 @@
     <div class="field input-field col s6">
       <i class="large material-icons prefix">warning</i>
       <%= f.select :project_status_id , ProjectStatus.all.collect {|p| [ p.name, p.id ] }, {}, {class: ''} %>
-      <%= f.label :project_status_id %>
+      <%= f.label :Estatus_del_proyecto %>
     </div>
     <br>
-    <div class="actions waves-effect waves-light btn lime darken-3">
+    <div class="actions waves-effect waves-light btn grey darken-3">
       <%= f.submit %>
     </div>
     <% end %>

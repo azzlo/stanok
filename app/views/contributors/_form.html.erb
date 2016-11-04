@@ -14,20 +14,20 @@
     <div class="row">
       <div class="field input-field col s12 m10 l8">
         <i class="material-icons prefix">mode_edit</i>
-        <%= f.label :name %>
+        <%= f.label :Nombre %>
         <%= f.text_field :name %>
       </div>
     </div>
     <div class="row">
       <div class="field input-field col s12 m6 l6">
         <i class="material-icons prefix">email</i>
-        <%= f.label :email %>
+        <%= f.label :Correo_electronico %>
         <%= f.text_field :email %>
       </div>
 
       <div class="field input-field col s12 m6 l5">
         <i class="material-icons prefix">phone</i>
-        <%= f.label :phone %>
+        <%= f.label :Telefono %>
         <%= f.number_field :phone %>
       </div>
     </div>
@@ -35,16 +35,18 @@
 
           <div class="field input-field col s12 m12 l10">
             <i class="material-icons prefix">person_pin</i>
-            <%= f.label :skills %>
+            <%= f.label :Habilidades %>
             <%= f.text_field :skills %>
           </div>
     </div>
 
     <br>
 
-    <div class="actions waves-effect waves-light btn lime darken-3">
+    
+    <div class="actions waves-effect waves-light btn grey darken-3">
       <%= f.submit %>
     </div>
+
   <% end %>
 
 

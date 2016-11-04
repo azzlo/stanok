@@ -12,6 +12,7 @@
           <p class="right"><%= project.client.name %></p>
           <p><%= project.final_date %></p>
           <p>$<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%</p>
+
         </div>
       </div>
     </div>
