@@ -2,15 +2,16 @@
 <div class="container">
 <br>
 <br>
-<h4><%= @runing_projects.count %> Proyectos en Produccion</h4>
-<% @runing_projects.each do |project| %>
+<h4><%= @running_projects.count %> Proyectos en Produccion</h4>
+<% @running_projects.each do |project| %>
   <a href="<%= project_path(project) %>">
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="col s12 m12 offset-m2 l12 offset-l3">
       <div class="card-panel hoverable grey lighten-5 z-depth-1">
         <div class="row valign-wrapper">
-          <h4><%= project.name %></h4>
-          para
-          <strong><%= project.client.name %></strong>
+          <p><%= project.name %></p>
+          <p class="right"><%= project.client.name %></p>
+          <p><%= project.final_date %></p>
+          <p>$<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%</p>
         </div>
       </div>
     </div>
@@ -20,40 +21,35 @@
 <br>
 
 <div class="row">
-  <div class="col s6">
-    <h3><%= Project.count %> Proyectos</h3>
-    <h4 class="green-text"><%= @completed_projects.count %> Terminados</h4>
-    <h5 class="orange-text"><%= @paused_projects.count %> Pausados</h5>
-  </div>
-  <div class="col s6">
-    <h3>$ <%= @projects.sum(:total_cost) %></h3>
-    <h4 class="green-text">$ <%= @projects.where(:project_status_id => 4).sum(:total_cost) %> en ingresos</h4>
-    <h5 class="orange-text"><%= @projects.where(:project_status_id => [1,2,3]) %> Pausados</h5>
-  </div>
-</div>
-
-<div class="row">
 <div class="col s12 m6">
  <table class="striped">
   <thead>
     <tr>
-        <th data-field="id">Name</th>
-        <th data-field="price">Item Price</th>
+        <th data-field="id">Proyecto</th>
+        <th data-field="price">Cantidad</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
-      <td>Alvin</td>
-      <td>$0.87</td>
+      <td>En Ejecución</td>
+      <td><%= @running_projects.count %></td>
     </tr>
     <tr>
-      <td>Alan</td>
-      <td>$3.76</td>
+      <td>Pausados</td>
+      <td><%= @paused_projects.count %></td>
     </tr>
     <tr>
-      <td>Jonathan</td>
-      <td>$7.00</td>
+      <td>Detenidos</td>
+      <td><%= @stoped_projects.count %></td>
+    </tr>
+    <tr>
+      <td>Finalizados</td>
+      <td><%= @completed_projects.count %></td>
+    </tr>
+    <tr>
+      <td>Todos</td>
+      <td><%= Project.count %></td>
     </tr>
   </tbody>
 </table>
@@ -62,23 +58,39 @@
  <table class="striped">
   <thead>
     <tr>
-        <th data-field="id">Name</th>
-        <th data-field="price">Item Price</th>
+        <th data-field="id">Concepto</th>
+        <th data-field="price">Total</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
-      <td>Alvin</td>
-      <td>$0.87</td>
+      <td>Cobrado de Proyectos Finalizados</td>
+      <% finished_payment = 0 %>
+      <% @completed_projects.each do |project| %>
+        <% finished_payment =+ project.project_payments.sum(:payment)  %>
+      <% end %>
+      <td>$ <%= finished_payment %></td>
     </tr>
     <tr>
-      <td>Alan</td>
-      <td>$3.76</td>
+      <td>Cobrado de Proyectos en ejecucion y pausados</td>
+      <% running_payment = 0 %>
+      <% @running_projects.each do |project| %>
+        <% running_payment =+ project.project_payments.sum(:payment)  %>
+      <% end %>
+      <% paused_payment = 0 %>
+      <% @paused_projects.each do |project| %>
+        <% paused_projects =+ project.project_payments.sum(:payment)  %>
+      <% end %>
+      <td>$ <%= running_payment + paused_payment %></td>
     </tr>
     <tr>
-      <td>Jonathan</td>
-      <td>$7.00</td>
+      <td>Total de Proyectos en ejecucion y pausados</td>
+      <td>$ <%= @running_projects.sum(:total_cost) + @paused_projects.sum(:total_cost) %></td>
+    </tr>
+    <tr>
+      <td>Proyectos Detenidos</td>
+      <td>$ <%= @stoped_projects.sum(:total_cost) %></td>
     </tr>
   </tbody>
 </table>
