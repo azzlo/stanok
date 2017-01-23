@@ -31,11 +31,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Devise for managment of users and sessions
 gem 'devise'
-#hojas de estilo material
+# Materializecss Frontend Framework
 gem 'materialize-sass'
-# esta gema la instalamos para la parte del logueo de nuestra app
-
+# i18l for multi-lang
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
