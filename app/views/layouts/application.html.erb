@@ -55,11 +55,13 @@
     <%= yield %>
 
     <footer class="page-footer light-blue darken-4">
-      <div class="container">
+      <% if user_signed_in? %>
+        <div class="container">
           <div class="col l12">
             <p class="text-right orange-text text-lighten-4"><%= current_user.email %> - <%= link_to 'salir', destroy_user_session_path, :method => :delete  %></p>
           </div>
-      </div>
+        </div>
+      <% end %>
       <div class="footer-copyright grey darken-4">
         <div class="container">
         © 2016 Copyright azzlo! Derechos Reservados
