@@ -56,12 +56,16 @@
     </div>
 
     <div class="row">
-      <div class="field input-field col l10">
+      <div class="field input-field col s10">
         <i class="large material-icons prefix">monetization_on</i>
-        <%= f.label :porcentaje %>
+        <%= f.label :porcentaje_para_la_empresa %>
         <p class="range-field">
           <%= f.range_field :percentage, min: 0, max: 100 %>
         </p>
+      </div>
+      <div class="field input-field col s2 percentage-container">
+         <h4 class="percentage-text">0</h4>
+         %
       </div>
     </div>
 
@@ -71,8 +75,8 @@
       <%= f.label :Estatus_del_proyecto %>
     </div>
     <br>
-    <div class="actions waves-effect waves-light btn grey darken-3">
-      <%= f.submit %>
+    <div class="actions row center">
+      <%= f.submit class: 'waves-effect waves-light btn grey darken-3' %>
     </div>
     <% end %>
 </div>

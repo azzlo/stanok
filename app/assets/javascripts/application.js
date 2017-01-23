@@ -19,9 +19,14 @@
 
 $(document).on('turbolinks:load', function() {
   $(".button-collapse").sideNav();
-  
+
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
+  $('#project_percentage').change(function(){
+    value = $('.range-field .value').html();
+    $('.percentage-container .percentage-text').html(value);
+  })
 })
