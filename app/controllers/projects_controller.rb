@@ -17,6 +17,9 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    if Client.all.count < 1
+      redirect_to new_client_url, notice: "Antes que nada registra aqui tu primer Cliente."
+    end
     @project = Project.new
   end
 
