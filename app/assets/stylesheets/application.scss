@@ -28,13 +28,28 @@ a:hover{
 
 body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
   font-size: 16px;
+  min-height: 100%;
+  padding-bottom: 7em;
+  position: relative;
 }
 
 footer{
-  margin-top: 4em !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: .3em !important;
+
+  p{
+    text-align: right !important;
+    margin: .2em;
+  }
+}
+
+html{
+  height: 100%;
 }
 
 main {
@@ -98,6 +113,25 @@ h5{
 .btn a, .btn:visited{
   color: white;
   font-size: 11px;
+}
+
+.flash-message{
+  margin: .5em;
+  text-align: center;
+  text-shadow: 1px 1px 1px grey;
+  font-weight: bold;
+
+  i{
+    font-weight: bold;
+  }
+}
+
+.flash-message.notice{
+  background-color: #12b2bd;
+}
+
+.flash-message.alert{
+  background-color: #db4848;
 }
 
 .no-visible{
