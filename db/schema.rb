@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101223605) do
+ActiveRecord::Schema.define(version: 20170124050633) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.string   "contact_name"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.string   "address"
     t.datetime "created_at",   null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20161101223605) do
     t.string   "name"
     t.string   "address"
     t.string   "logo"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161101223605) do
   create_table "contributors", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "skills"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
