@@ -1,67 +1,70 @@
-<%= form_for(service) do |f| %>
-  <% if service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<div class="container">
+  <%= form_for(service) do |f| %>
+    <% if service.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
-      <ul>
-      <% service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :client_name %>
+      <%= f.text_field :client_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :customer_contact_information %>
+      <%= f.text_area :customer_contact_information %>
+    </div>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :type %>
+      <%= f.text_field :type %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :amount %>
+      <%= f.number_field :amount %>
+    </div>
+
+    <div class="field">
+      <%= f.label :execution_date %>
+      <%= f.date_select :execution_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :status %>
+      <%= f.text_field :status %>
+    </div>
+
+    <div class="field">
+      <%= f.label :business_gain %>
+      <%= f.number_field :business_gain %>
+    </div>
+
+    <div class="field">
+      <%= f.label :conclusions %>
+      <%= f.text_area :conclusions %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :client_name %>
-    <%= f.text_field :client_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :customer_contact_information %>
-    <%= f.text_area :customer_contact_information %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :amount %>
-    <%= f.number_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= f.label :execution_date %>
-    <%= f.date_select :execution_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :business_gain %>
-    <%= f.number_field :business_gain %>
-  </div>
-
-  <div class="field">
-    <%= f.label :conclusions %>
-    <%= f.text_area :conclusions %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
