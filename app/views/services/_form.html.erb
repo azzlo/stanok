@@ -59,7 +59,7 @@
       <div class="field col s12 l4">
         <%= f.label :estado_del_servicio %>
         <p>
-          <%= f.radio_button :status, 'Activo' %>
+          <%= f.radio_button :status, 'Activo', checked: true %>
           <%= f.label :status_active, 'Ejecutandose', for: 'service_status_activo' %> <br>
           <%= f.radio_button :status, 'Cancelado' %>
           <%= f.label :status_cancel, 'Cancelado', for: 'service_status_cancelado' %> <br>
