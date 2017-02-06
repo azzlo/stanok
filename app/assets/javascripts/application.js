@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize-sprockets
 //= require turbolinks
+//= require materialize-sprockets
 //= require_tree .
 
 
@@ -25,7 +25,12 @@ $(document).on('turbolinks:load', function() {
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
 
-  $('#project_percentage').change(function(){
+  value = $('.range-field input').val();
+  if (value > 0) {
+    $('.percentage-container .percentage-text').html(value);
+  }
+
+  $('#project_percentage, #service_business_gain').change(function(){
     value = $('.range-field .value').html();
     $('.percentage-container .percentage-text').html(value);
   })
