@@ -1,41 +1,59 @@
-
 <div class="container">
 <br>
-<br>
-<h3 class="center-align light-blue-text text-darken-4"><%= @running_projects.count %> Proyectos en Produccion</h3>
-<% @running_projects.each do |project| %>
-<br>
-
-  <a href="<%= project_path(project) %>">
-    <div class="col s12 m12 offset-m2 l12 offset-l3 grey">
-      <div class="inicialinfo card-panel hoverable grey lighten-5 z-depth-3 brown-text text-darken-2">
-        <div class="row">
-          <div class="col s12 m12 l12">
-            <h5 class="center-align brown-text text-lighten-2"><%= project.name %></h5>
+<div class="row">
+  <div class="col l6">
+    <h3 class="center-align light-blue-text text-darken-4">Proyectos</h3>
+    <% @running_projects.each do |project| %>
+    <a href="<%= project_path(project) %>">
+        <div class="inicialinfo card-panel hoverable grey lighten-5 z-depth-3 brown-text text-darken-2">
+          <div class="row">
+            <div class="col s12">
+              <h5 class="brown-text text-lighten-2 bold"><%= project.name %></h5>
+            </div>
           </div>
-
-
+          <div class="row">
+            <div class="col s4 center-align ">
+              <%= project.client.name %>
+            </div>
+            <div class="col s4 center-align">
+              <%= project.final_date %>
+            </div>
+            <div class="col s4 center-align">
+              <strong>
+                $<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%
+              </strong>
+            </div>
+          </div>
         </div>
+    </a>
+    <% end %>
+  </div>
+  <div class="col l6">
+    <h3 class="center-align light-blue-text text-darken-4">Servicios</h3>
+    <div class="card-panel hoverable grey lighten-5 z-depth-3 brown-text text-darken-2">
+      <% @services.each do |service| %>
         <div class="row">
-          <div class="col s4 center-align ">
-
-            <p class="ini"><%= project.client.name %></p>
+          <div class="col s12">
+            <h5 class="bold"><%= service.title %></h5>
           </div>
-          <div class="col s4 center-align">
-              <p class="ini"><%= project.final_date %></p>
+          <div class="col l12">
+            <div class="row">
+              <div class="col l4">
+                <%= service.client_name %>
+              </div>
+              <div class="col l4">
+                <%= service.execution_date %>
+              </div>
+              <div class="col l4">
+                $ <%= service.amount %>.00
+              </div>
+            </div>
           </div>
-          <div class="col s4 center-align">
-            <strong>
-              <p class="ini">$<%= project.project_payments.sum(:payment) %> el <%= (project.project_payments.sum(:payment) * 100 / project.total_cost).round 2 %>%</p>
-            </strong>
-
-          </div>
-
         </div>
-      </div>
+      <% end %>
     </div>
-  </a>
-<% end %>
+  </div>
+</div>
 
 <br>
 <br>
