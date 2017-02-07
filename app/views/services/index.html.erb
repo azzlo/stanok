@@ -1,7 +1,12 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Servicios</h1>
+  <div class="row">
+    <div class="col s1 m1"></div>
+    <div class="center-align col s10 m10 light-blue-text text-darken-4"><h3>Servicios</h3></div>
+    <div class="col s1 m1 center-align"><a href= "<%= new_service_path %>" class="btn-floating btn-large waves-effect waves-light brown lighten-2"> <i class="material-icons orange-text text-lighten-5">add</i></a></div>
+  </div>
+
 
   <table>
     <thead>
@@ -27,16 +32,13 @@
           <td><%= service.execution_date %></td>
           <td><%= service.status %></td>
           <td><%= service.conclusions %></td>
-          <td><%= link_to 'Show', service %></td>
-          <td><%= link_to 'Edit', edit_service_path(service) %></td>
-          <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <td><%= link_to '<i class="small material-icons brown-text text-lighten-2">edit_mode</i>'.html_safe, edit_service_path(service) %></td>
+          <td><%= link_to '<i class="small material-icons brown-text text-lighten-2">delete_forever</i>'.html_safe, service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <br>
-
-  <%= link_to 'New Service', new_service_path %>
-
 </div>

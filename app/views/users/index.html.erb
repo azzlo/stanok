@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col s1 m1"></div>
     <div class="center-align col s10 m10 light-blue-text text-darken-4"><h3>Usuarios del sistema</h3></div>
-    <div class="col s1 m1 center-align"><a href= "<%= new_user_path %>" class="btn-floating btn-large waves-effect waves-light orange lighten-5"> <i class="material-icons grey-text text-darken-4">add</i></a></div>
+    <div class="col s1 m1 center-align"><a href= "<%= new_user_path %>" class="btn-floating btn-large waves-effect waves-light brown lighten-2"> <i class="material-icons orange-text text-lighten-5">add</i></a></div>
   </div>
   <br>
   <table>
@@ -26,10 +26,10 @@
           <td><%= user.email %></td>
           <td><%= user.state %></td>
           <td>
-            <%= link_to '<i class="small material-icons orange-text text-lighten-4">edit_mode</i>'.html_safe, edit_user_path(user) %>
+            <%= link_to '<i class="small material-icons brown-text text-lighten-2">edit_mode</i>'.html_safe, edit_user_path(user) %>
           </td>
           <td>
-            <%= link_to '<i class="small material-icons orange-text text-lighten-4">delete_forever</i>'.html_safe, user, method: :delete, data: { confirm: 'Esta seguro de querer eliminar?' } %>
+            <%= link_to '<i class="small material-icons brown-text text-lighten-2">delete_forever</i>'.html_safe, user, method: :delete, data: { confirm: 'Esta seguro de querer eliminar?' } %>
           </td>
         </tr>
       <% end %>
