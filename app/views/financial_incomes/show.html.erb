@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @financial_income.amount %>
+</p>
+
+<p>
+  <strong>Project payment:</strong>
+  <%= @financial_income.project_payment %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @financial_income.service %>
+</p>
+
+<%= link_to 'Edit', edit_financial_income_path(@financial_income) %> |
+<%= link_to 'Back', financial_incomes_path %>

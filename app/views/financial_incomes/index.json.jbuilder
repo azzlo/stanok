@@ -1,0 +1,1 @@
+json.array! @financial_incomes, partial: 'financial_incomes/financial_income', as: :financial_income

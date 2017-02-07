@@ -1,0 +1,1 @@
+json.partial! "financial_incomes/financial_income", financial_income: @financial_income

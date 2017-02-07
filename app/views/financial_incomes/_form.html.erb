@@ -1,0 +1,32 @@
+<%= form_for(financial_income) do |f| %>
+  <% if financial_income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(financial_income.errors.count, "error") %> prohibited this financial_income from being saved:</h2>
+
+      <ul>
+      <% financial_income.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_payment_id %>
+    <%= f.text_field :project_payment_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :service_id %>
+    <%= f.text_field :service_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

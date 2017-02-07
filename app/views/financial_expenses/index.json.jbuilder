@@ -1,0 +1,1 @@
+json.array! @financial_expenses, partial: 'financial_expenses/financial_expense', as: :financial_expense
