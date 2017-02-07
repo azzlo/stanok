@@ -4,15 +4,15 @@
   </div>
   <div class="col s12 m8">
     <br>
-    <h2 class="center-align">Iniciar sesion</h2>
+    <h3 class="center-align light-blue-text text-darken-4">Iniciar sesion</h3>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
+      <div class="field input-field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
 
-      <div class="field">
+      <div class="field input-field">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
@@ -25,7 +25,7 @@
       <% end -%>
 
       <div class="actions center-align">
-        <a class="waves-effect waves-light btn"><%= f.submit "iniciar sesion" %></a>
+        <a class="waves-effect waves-light btn grey darken-4"><%= f.submit "iniciar sesion" %></a>
       </div>
     <% end %>
 

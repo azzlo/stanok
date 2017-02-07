@@ -13,9 +13,8 @@
     <header>
       <nav>
         <div class="nav-wrapper grey darken-4 valign-wrapper">
-          <span href="#!" class="brand-logo center"><i class="bold">azzlo</i></span>
+          <span href="#!" class="brand-logo center"><i class="bold <%= active_if controller: 'welcome' %>"><%= link_to "AZZLO", root_path %></i></span>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li class="<%= active_if controller: 'welcome' %>"><%= link_to "Inicio", root_path %></li>
             <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
             <li class="<%= active_if controller: 'clients' %>"> <%= link_to "Clientes", clients_path %></li>
             <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
