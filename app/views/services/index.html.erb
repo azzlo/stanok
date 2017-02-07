@@ -12,7 +12,7 @@
     <thead>
       <tr>
         <th>Cliente</th>
-        <th>Titulo Servicio</th>
+        <th>Tipo de Servicio</th>
         <!-- <th>Type</th> -->
         <th>Costo</th>
         <th>Fecha de ejecucion</th>
@@ -26,7 +26,7 @@
       <% @services.each do |service| %>
         <tr>
           <td><%= service.client_name %></td>
-          <td><%= service.title %></td>
+          <td><%= service.type %></td>
           <!-- <td><%#= service.type %></td> -->
           <td><%= service.amount %></td>
           <td><%= service.execution_date %></td>
