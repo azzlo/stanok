@@ -1,5 +1,8 @@
-<h1>New Financial Expense</h1>
+<div class="container">
+  <h3 class="center-align light-blue-text text-darken-4">Nuevo gasto</h3>
 
-<%= render 'form', financial_expense: @financial_expense %>
+  <%= render 'form', financial_expense: @financial_expense %>
+  <a class="waves-effect waves-light btn grey darken-3"<%= link_to 'Regresar', financial_expenses_path %></a>
 
-<%= link_to 'Back', financial_expenses_path %>
+
+</div>
