@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!({:email => "admin@admin", :password => "123456", :password_confirmation => "123456" })
+CompanyDetail.create!({:name => "Change here your company's name", :address => "Put here the company address", :logo => "Not works but in the future you can uploads a image of your logo", :phone => "Put here your company's phone", :description => "Change here your company's description" })

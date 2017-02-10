@@ -1,35 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Company Details</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Logo</th>
-      <th>Phone</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Company Details</h1>
 
-  <tbody>
-    <% @company_details.each do |company_detail| %>
-      <tr>
-        <td><%= company_detail.name %></td>
-        <td><%= company_detail.address %></td>
-        <td><%= company_detail.logo %></td>
-        <td><%= company_detail.phone %></td>
-        <td><%= company_detail.description %></td>
-        <td><%= link_to 'Show', company_detail %></td>
-        <td><%= link_to 'Edit', edit_company_detail_path(company_detail) %></td>
-        <td><%= link_to 'Destroy', company_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <p id="notice"><%= notice %></p>
 
-<br>
+  <p>
+    <strong>Name:</strong>
+    <%= @company_detail.name %>
+  </p>
 
-<%= link_to 'New Company Detail', new_company_detail_path %>
+  <p>
+    <strong>Address:</strong>
+    <%= @company_detail.address %>
+  </p>
+
+  <p>
+    <strong>Logo:</strong>
+    <%= @company_detail.logo %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= @company_detail.phone %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @company_detail.description %>
+  </p>
+
+  <%= link_to 'Edit', edit_company_detail_path(@company_detail), class: "btn-large center" %>
+</div>
