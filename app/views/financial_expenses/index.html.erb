@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Financial Expenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financial_expenses.each do |financial_expense| %>
+      <tr>
+        <td><%= financial_expense.amount %></td>
+        <td><%= financial_expense.description %></td>
+        <td><%= link_to 'Show', financial_expense %></td>
+        <td><%= link_to 'Edit', edit_financial_expense_path(financial_expense) %></td>
+        <td><%= link_to 'Destroy', financial_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Financial Expense', new_financial_expense_path %>

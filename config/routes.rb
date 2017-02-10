@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :financial_expenses
+  resources :financial_incomes
   resources :services
   resources :project_statuses
   devise_for :users

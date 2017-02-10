@@ -1,0 +1,2 @@
+class FinancialExpense < ApplicationRecord
+end

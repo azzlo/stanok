@@ -1,0 +1,1 @@
+json.partial! "financial_expenses/financial_expense", financial_expense: @financial_expense
