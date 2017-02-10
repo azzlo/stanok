@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :project_statuses
   devise_for :users
   get 'welcome/index'
+  get 'welcome/financial_state'
   root 'welcome#index'
 
   resources :projects do

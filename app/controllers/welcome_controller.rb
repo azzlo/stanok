@@ -7,4 +7,12 @@ class WelcomeController < ApplicationController
     @projects = Project.all
     @services = Service.all.limit(10)
   end
+  def financial_state
+    @financial_incomes=FinancialIncome.all.limit(10)
+    @financial_expences=FinancialExpense.all.limit(10)
+    @total_incomes=FinancialIncome.all.sum(:amount)
+    @total_expences=FinancialExpense.all.sum(:amount)
+    @total=@total_incomes - @total_expences
+
+  end
 end
