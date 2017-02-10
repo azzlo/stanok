@@ -1,0 +1,114 @@
+<div class="container show-project-container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col s12">
+      <div class="divider"></div>
+     <div class="section">
+       <h3 class="center-align light-blue-text text-darken-4">Estado Financiero</h3>
+       <p class="center-align pharagraph-reduced">
+         informacion exclusiva para
+         <a href="">
+           <strong class="bold">Azzlo!</strong>
+         </a>
+         inició
+         <strong class="bold"> enero de 2017</strong>
+       </p>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s4">
+       <div class="divider"></div>
+       <div class="section">
+         <h4 class="center-align">$$$</h4>
+           <p class="pharagraph-reduced center-align">
+             Monto total azzlo
+           </p>
+
+       </div>
+    </div>
+    <div class="col s4">
+      <div class="divider"></div>
+      <div class="section">
+        <h4 class="center-align">$$$</h4>
+        <p class="pharagraph-reduced center-align">
+          Ingresos totales
+        </p>
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="divider"></div>
+      <div class="section">
+        <h4 class="center-align">$$$$</h4>
+        <p  class="pharagraph-reduced center-align">Egresos totales</p>
+      </div>
+    </div>
+  </div>
+
+
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><span class="new badge" data-badge-caption="Pagos">4</span><i class="material-icons">assessment</i>
+        Hay <span class="money">$<%= @project.project_payments.sum(:payment) %></span> y faltan <span class="money"><%= @project.total_cost - @project.project_payments.sum(:payment)%> por cobrar </span>
+      </div>
+      <div class="collapsible-body center-align">
+        <table class="highlight bordered">
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>Descripción</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @project.project_payments.each do |payment| %>
+            <tr>
+              <td><strong>$ <%= payment.payment %></strong></td>
+              <td><%= payment.description %></td>
+              <td><%= link_to 'Destroy', project_project_payment_path(@project, payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "Agregar Abono", new_project_project_payment_path(@project), class: "add-btn waves-effect waves-light btn" %>
+      </div>
+
+    </li>
+  </ul>
+<br>
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><span class="new badge" data-badge-caption="Pagos">4</span><i class="material-icons">assessment</i>
+      Hay <span class="money">$<%= @project.project_payments.sum(:payment) %></span> y faltan <span class="money"><%= @project.total_cost - @project.project_payments.sum(:payment)%> por cobrar </span>
+    </div>
+    <div class="collapsible-body center-align">
+      <table class="highlight bordered">
+        <thead>
+          <tr>
+            <th>Cantidad</th>
+            <th>Descripción</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @project.project_payments.each do |payment| %>
+          <tr>
+            <td><strong>$ <%= payment.payment %></strong></td>
+            <td><%= payment.description %></td>
+            <td><%= link_to 'Destroy', project_project_payment_path(@project, payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Agregar Abono", new_project_project_payment_path(@project), class: "add-btn waves-effect waves-light btn" %>
+    </div>
+
+  </li>
+</ul>
+<br>
+
+
+</div>
