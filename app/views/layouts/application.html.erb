@@ -11,20 +11,20 @@
 
   <body>
     <header>
-      <ul id="dropdown1" class="dropdown-content" style="background:#000;">
-  <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
-    <li class="divider"></li>
-  <li class="<%= active_if controller: 'clients' %>"> <%= link_to "Clientes", clients_path %></li>
-  <li class="divider"></li>
-  <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
-  <li class="divider"></li>
-  <li class="<%= active_if controller: 'welcome' %>"> <%= link_to "Finanzas", welcome_financial_state_path %></li>
-</ul>
+    <ul id="dropdown1" class="dropdown-content" style="background:#000;">
+      <li class="<%= active_if controller: 'users' %>"><%= link_to "Usuarios", users_path %></li>
+      <li class="divider"></li>
+      <li class="<%= active_if controller: 'clients' %>"> <%= link_to "Clientes", clients_path %></li>
+      <li class="divider"></li>
+      <li class="<%= active_if controller: 'contributors' %>"><%= link_to "Colaboradores", contributors_path %> </li>
+      <li class="divider"></li>
+      <li class="<%= active_if controller: 'welcome' %>"> <%= link_to "Finanzas", welcome_financial_state_path %></li>
+    </ul>
       <nav>
         <div class="nav-wrapper grey darken-4 valign-wrapper">
           <span href="#!" class="brand-logo center"><i class="bold <%= active_if controller: 'welcome' %>"><%= link_to "AZZLO", root_path %></i></span>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Administracion<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li ><a href="#" class="dropdown-button"  data-activates="dropdown1">Administracion<i class="material-icons right">arrow_drop_down</i></a> </li>
             <li class="<%= active_if controller: 'projects' %>"> <%= link_to "Proyectos", projects_path %></li>
             <li class="<%= active_if controller: 'services' %>"> <%= link_to "Servicios", services_path %></li>
           </ul>

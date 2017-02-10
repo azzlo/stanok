@@ -19,6 +19,7 @@
 
 $(document).on('turbolinks:load', function() {
   $(".button-collapse").sideNav();
+  $(".dropdown-button").dropdown();
 
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
