@@ -2,34 +2,39 @@
 
   <p id="notice"><%= notice %></p>
 
-  <h1>Company Details</h1>
+  <h3 class="center-align col s10 m10 light-blue-text text-darken-4">Detalles de la empresa</h3>
 
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @company_detail.name %>
-  </p>
+  <ul class="collection with-header">
+    <li class="collection-header"><h4><%= @company_detail.name %></h4></li>
+    <li class="collection-item">
+      <h5 class="center-align brown-text text-lighten-2"><%= @company_detail.address %></h5>
+      <p class="pharagraph-reduced center-align">
+        <strong class="grey-text text-darken-4">Direccion:</strong>
+      </p>
+    </li>
+    <li class="collection-item">
+      <h5 class="center-align brown-text text-lighten-2"><%= @company_detail.logo %></h5>
+      <p class="pharagraph-reduced center-align">
+        <strong class="grey-text text-darken-4">Logo:</strong>
+      </p>
+    </li>
+    <li class="collection-item">
+      <h5 class="center-align brown-text text-lighten-2"><%= @company_detail.phone %></h5>
+      <p class="pharagraph-reduced center-align">
+        <strong class="grey-text text-darken-4">Telefono:</strong>
+      </p>
+    </li>
+    <li class="collection-item">
+      <h5 class="center-align brown-text text-lighten-2"><%= @company_detail.description %></h5>
+      <p class="pharagraph-reduced center-align">
+        <strong class="grey-text text-darken-4">Descripcion:</strong>
+      </p>
+    </li>
+  </ul>
 
-  <p>
-    <strong>Address:</strong>
-    <%= @company_detail.address %>
-  </p>
 
-  <p>
-    <strong>Logo:</strong>
-    <%= @company_detail.logo %>
-  </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= @company_detail.phone %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @company_detail.description %>
-  </p>
-
-  <%= link_to 'Edit', edit_company_detail_path(@company_detail), class: "btn-large center" %>
+  <%= link_to 'Editar', edit_company_detail_path(@company_detail), class: "waves-effect waves-light btn grey darken-3" %>
 </div>

@@ -1,6 +1,8 @@
-<h1>Editing Financial Expense</h1>
+<div class="container">
+  <h3 class="center-align light-blue-text text-darken-4">Editar egreso financiero</h3>
 
-<%= render 'form', financial_expense: @financial_expense %>
+  <%= render 'form', financial_expense: @financial_expense %>
+<a class="waves-effect waves-light btn grey darken-3"<%= link_to 'Mostrar', @financial_expense %> </a>
+<a class="waves-effect waves-light btn grey darken-3" <%= link_to 'Regresar', financial_expenses_path %></a>
 
-<%= link_to 'Show', @financial_expense %> |
-<%= link_to 'Back', financial_expenses_path %>
+</div>

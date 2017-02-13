@@ -1,42 +1,48 @@
-<%= form_for(company_detail) do |f| %>
-  <% if company_detail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company_detail.errors.count, "error") %> prohibited this company_detail from being saved:</h2>
+<div class="container">
+  <%= form_for(company_detail) do |f| %>
+    <% if company_detail.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(company_detail.errors.count, "error") %> prohibited this company_detail from being saved:</h2>
 
-      <ul>
-      <% company_detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% company_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field input-field col s10 m6 l5">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :nombre_de_la_empresa %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field input-field col s10 m6 l5">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :direccion %>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field input-field col s10 m6 l5">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :logo %>
+      <%= f.text_field :logo %>
+    </div>
+
+    <div class="field input-field col s10 m6 l5">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :telefono %>
+      <%= f.text_field :phone %>
+    </div>
+
+    <div class="field input-field col s10 m6 l5">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :descripcion %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="actions waves-effect waves-light btn grey darken-3">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :logo %>
-    <%= f.text_field :logo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

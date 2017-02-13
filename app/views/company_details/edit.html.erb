@@ -1,6 +1,9 @@
-<h1>Editing Company Detail</h1>
+<div class="container">
+  <h3 class="center-align light-blue-text text-darken-4">Editar datos de la empresa</h3>
+  <br>
+  <%= render 'form', company_detail: @company_detail %>
 
-<%= render 'form', company_detail: @company_detail %>
+  <a class="waves-effect waves-light btn grey darken-3"<%= link_to 'Regresar', company_details_path %></a>
 
-<%= link_to 'Show', @company_detail %> |
-<%= link_to 'Back', company_details_path %>
+
+</div>
