@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
   has_many :financial_incomes
+  has_many :service_charges
   validates :client_name, :service_type, :amount, :execution_date, :status, :business_gain, presence: true
 
   before_save :add_financial_income

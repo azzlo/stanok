@@ -24,7 +24,7 @@
     <tbody>
       <% @services.each do |service| %>
         <tr>
-          <td><%= service.client_name %></td>
+          <td><%= link_to service.client_name,  service %></td>
           <td><%= service.service_type %></td>
           <td><%= service.amount %></td>
           <td><%= service.execution_date %></td>

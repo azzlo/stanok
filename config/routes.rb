@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :financial_expenses
   resources :financial_incomes
-  resources :services
+  resources :services do
+    resources :service_charges
+  end
   resources :project_statuses
   devise_for :users
   get 'welcome/index'

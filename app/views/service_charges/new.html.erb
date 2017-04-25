@@ -1,0 +1,8 @@
+<div class="container">
+
+  <h1>Nuevo Gasto para <strong><%= @service.service_type %></strong> </h1>
+
+  <%= render 'form', service_charge: @service_charge %>
+
+  <%= link_to '<i class="material-icons prefix">arrow_back</i> Regresar'.html_safe, service_path(@service) %>
+  </div>

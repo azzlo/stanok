@@ -12,16 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require turbolinks
-//= require materialize-sprockets
+//= require materialize
 //= require_tree .
 
-
-$(document).on('turbolinks:load', function() {
-  init_materialize();
+$( function() {
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
 
+
+
+  // materializecss init
+
+  $('select').material_select();
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -35,5 +37,5 @@ $(document).on('turbolinks:load', function() {
   $('#project_percentage, #service_business_gain').change(function(){
     value = $('.range-field .value').html();
     $('.percentage-container .percentage-text').html(value);
-  })
-})
+  });
+});

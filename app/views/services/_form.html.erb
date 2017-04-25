@@ -14,12 +14,12 @@
 
   <div class="row">
     <div class="row card-panel grey lighten-5">
-      <div class="field input-field col s12 l6">
+      <div class="input-field col s12 l6">
         <i class="material-icons prefix">account_circle</i>
         <%= f.label :nombre_de_cliente, for: 'service_client_name' %>
-        <%= f.text_field :client_name %>
+        <%= f.text_field :client_name, class: "validate" %>
       </div>
-      <div class="field input-field col s12 l6">
+      <div class="input-field col s12 l6">
         <i class="material-icons prefix">contact_mail</i>
         <%= f.label :informacion_de_contacto_cliente, for: 'service_customer_contact_information'%>
         <%= f.text_area :customer_contact_information, class: 'materialize-textarea' %>
@@ -27,13 +27,13 @@
     </div>
 
     <div class="row card-panel grey lighten-5">
-      <div class="field input-field col s12 l6">
+      <div class="input-field col s12 l6">
         <i class="material-icons prefix">shopping_cart</i>
         <%= f.label :Servicio, for: 'service_service_type' %>
         <%= f.text_field :service_type %>
       </div>
 
-      <div class="field input-field col s12 l6">
+      <div class="input-field col s12 l6">
         <i class="material-icons prefix">description</i>
         <%= f.label :descripcion_del_servicio, for: 'service_description' %>
         <%= f.text_area :description, class: 'materialize-textarea' %>
@@ -42,17 +42,17 @@
 
 
     <div class="row card-panel grey lighten-5">
-      <div class="field input-field col l4">
+      <div class="input-field col l4">
         <i class="material-icons prefix">attach_money</i>
         <%= f.label :costo, for: 'service_amount' %>
         <%= f.number_field :amount %>
       </div>
-      <div class="field input-field col s12 l4">
+      <div class="input-field col s12 l4">
         <i class="material-icons prefix">date_range</i>
         <%= f.label :fecha_de_ejecucion, for: 'service_execution_date' %>
         <%= f.text_field :execution_date, class: 'datepicker' %>
       </div>
-      <div class="field col s12 l4">
+      <div class="col s12 l4">
         <%= f.label :estado_del_servicio %>
         <p>
           <%= f.radio_button :status, 'Activo', checked: true %>
@@ -71,16 +71,16 @@
       <div class="col s10 field input-field">
         <%= f.label :ganancia_del_negocio %><br>
         <p class="range-field">
-          <%= f.range_field :business_gain, min:0, max:60%>
+          <%= f.range_field :business_gain, min:0, max:100%>
         </p>
       </div>
-      <div class="field input-field col s2 percentage-container">
+      <div class="input-field col s2 percentage-container">
         <h4 class="percentage-text">0</h4>
         %
       </div>
     </div>
 
-    <div class="field input-field hide">
+    <div class="input-field hide">
       <%= f.label :conclusiones, for: 'service_conclusions' %>
       <%= f.text_area :conclusions, class: 'materialize-textarea' %>
     </div>
