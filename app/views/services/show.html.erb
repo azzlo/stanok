@@ -1,12 +1,10 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
 
   <div class="row">
     <div class="col m12">
       <h2>
-        <strong>
-          <%= @service.service_type %>
-        </strong>
+        <strong> <%= @service.service_type %> </strong>
+        <small> <%= link_to '<i class="material-icons">mode_edit</i>'.html_safe, edit_service_path(@service), class: "btn" %> </small>
       </h2>
     </div>
 
@@ -16,12 +14,53 @@
       </h3>
     </div>
 
-    <div class="col m6">
+    <div class="col m12">
       <p>
         <strong>Cliente Info.:</strong>
         <%= @service.customer_contact_information %>
       </p>
     </div>
+
+    <div class="col m6">
+      <p>
+        <strong>Fecha de Ejecución:</strong>
+        <%= @service.execution_date %>
+      </p>
+    </div>
+
+    <div class="col m6">
+      <p>
+        <strong>Fecha de Finalización:</strong>
+        <%= @service.finish_date %>
+      </p>
+    </div>
+
+    <div class="col m4 center-align">
+      <h5 class="no-margin-bottom"> <strong>$ <%= @service.amount %></strong> </h5>
+      <strong>Costo<d/strong>
+    </div>
+
+    <div class="col m4 center-align">
+      <h5 class="no-margin-bottom">
+        <strong>
+          <%= @service.business_gain %> %
+        </strong>
+      </h5>
+      <strong>Ganancia del Negocio</strong>
+    </div>
+
+    <div class="col m4 center-align">
+      <h5 class="no-margin-bottom">
+        <strong>
+          $ <%= (( @service.business_gain.to_f / 100 ) * @service.amount) - @service.service_charges.sum(:amount) %>0
+        </strong>
+      </h5>
+        <strong>Ganancia Total</strong>
+
+      </p>
+    </div>
+
+
   </div>
 
 
@@ -31,23 +70,8 @@
   </p>
 
   <p>
-    <strong>Costo:</strong>
-    $ <%= @service.amount %>
-  </p>
-
-  <p>
-    <strong>Fecha de Ejecución:</strong>
-    <%= @service.execution_date %>
-  </p>
-
-  <p>
     <strong>Estado:</strong>
     <%= @service.status %>
-  </p>
-
-  <p>
-    <strong>Ganancia del Negocio:</strong>
-    <%= @service.business_gain %>
   </p>
 
   <p>
@@ -56,11 +80,17 @@
   </p>
 
   <div class="row card-panel grey lighten-5">
-    <div class="column">
+    <div class="col s12">
       <% @service.service_charges.each do |service_charge|%>
-      <p> <%= service_charge.amount %></p>
-      <p> <%= service_charge.description %></p>
+      <p>
+        <strong>
+          $ <%= service_charge.amount %>0
+        </strong>
+        <%= service_charge.description %>
+      </p>
       <% end %>
+      <hr>
+      <h5>$ <%= @service.service_charges.sum(:amount) %>0 <small> en Total</small></h5>
     </div>
     <%= link_to '<i class="large material-icons">note_add</i> Agregar Gasto'.html_safe, new_service_service_charge_path(@service), class: "btn" %>
   </div>

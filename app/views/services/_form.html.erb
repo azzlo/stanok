@@ -52,6 +52,11 @@
         <%= f.label :fecha_de_ejecucion, for: 'service_execution_date' %>
         <%= f.text_field :execution_date, class: 'datepicker' %>
       </div>
+      <div class="input-field col s12 l4">
+        <i class="material-icons prefix">date_range</i>
+        <%= f.label :finish_date, "Finalizado", for: 'service_execution_date' %>
+        <%= f.text_field :finish_date, class: 'datepicker' %>
+      </div>
       <div class="col s12 l4">
         <%= f.label :estado_del_servicio %>
         <p>
