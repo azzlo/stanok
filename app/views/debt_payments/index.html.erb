@@ -1,0 +1,29 @@
+<h1>Pago a Deuda <%= 'DEUDA ID o lo que sea' %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Financial expense</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @debt_payments.each do |debt_payment| %>
+      <tr>
+        <td><%= debt_payment.amount %></td>
+        <td><%= debt_payment.financial_expense %></td>
+        <td><%= debt_payment.description %></td>
+        <td><%= link_to 'Show', debt_payment %></td>
+        <td><%= link_to 'Edit', edit_debt_payment_path(debt_payment) %></td>
+        <td><%= link_to 'Destroy', debt_payment, method: :delete, data: { confirm: 'En realidad ¿deseas eliminarlo?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Debt Payment', new_financial_expense_debt_payment_path %>

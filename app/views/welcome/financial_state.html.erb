@@ -1,48 +1,38 @@
 <div class="container show-project-container">
-  <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col s12">
       <div class="divider"></div>
      <div class="section">
-       <h3 class="center-align light-blue-text text-darken-4">Estado Financiero</h3>
-       <p class="center-align pharagraph-reduced">
-         informacion exclusiva para
-         <a href="">
-           <strong class="bold">Azzlo!</strong>
-         </a>
-         inició
-         <strong class="bold"> enero de 2017</strong>
-       </p>
+       <h2 class="center-align light-blue-text text-darken-4">Estado Financiero</h2>
      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col s4">
-       <div class="divider"></div>
        <div class="section">
          <h4 class="center-align">$<%= @total %></h4>
            <p class="pharagraph-reduced center-align">
              Monto total azzlo
            </p>
-
        </div>
+       <div class="divider"></div>
     </div>
     <div class="col s4">
-      <div class="divider"></div>
       <div class="section">
         <h4 class="center-align">$<%= @total_incomes %></h4>
         <p class="pharagraph-reduced center-align">
           Ingresos totales
         </p>
       </div>
+      <div class="divider"></div>
     </div>
     <div class="col s4">
-      <div class="divider"></div>
       <div class="section">
         <h4 class="center-align">$<%= @total_expences %></h4>
         <p  class="pharagraph-reduced center-align">Egresos totales</p>
       </div>
+      <div class="divider"></div>
     </div>
   </div>
 
@@ -82,27 +72,34 @@
     <div class="collapsible-header"><i class="material-icons">assessment</i>
       Detalle de los ultimos egresos
     </div>
-    <div class="collapsible-body center-align">
-      <table class="highlight bordered">
+    <div class="collapsible-body center-align" style="padding-bottom: 1em">
+      <table class="highlight">
         <thead>
           <tr>
-            <th>Cantidad</th>
-            <th>Descripción</th>
-
+            <th width="100">Cantidad</th>
+            <th width="50" class="center-align">Tipo</th>
+            <th>Descripción <%= link_to 'Ver todos', financial_expenses_url, class: 'right btn blue-grey lighten-2' %></th>
           </tr>
         </thead>
 
         <tbody>
           <% @financial_expences.each do |expense| %>
           <tr>
-            <td><strong>$ <%= expense.amount %></strong></td>
+            <td class="right-align"><strong>$ <%= number_with_precision(expense.amount, :precision => 0) || 0 %></strong></td>
+            <td>
+              <% if expense.debt %>
+                <div class="chip purple darken-1">
+                  <span class="white-text">Deuda</span>
+                </div>
+              <% end %>
+            </td>
             <td><%= expense.description %></td>
 
           </tr>
           <% end %>
         </tbody>
       </table>
-      <%= link_to "Nuevo gasto", new_financial_expense_path, class: "add-btn waves-effect waves-light btn" %>
+      <%= link_to "<i class='material-icons left'>library_add</i> Agregar gasto".html_safe, new_financial_expense_path, class: "waves-effect waves-light btn light-blue accent-4" %>
     </div>
 
   </li>

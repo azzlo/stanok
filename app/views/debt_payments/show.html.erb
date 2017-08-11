@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @debt_payment.amount %>
+</p>
+
+<p>
+  <strong>Financial expense:</strong>
+  <%= @debt_payment.financial_expense %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @debt_payment.description %>
+</p>
+
+<%= link_to 'Edit', edit_debt_payment_path(@debt_payment) %> |
+<%= link_to 'Back', debt_payments_path %>

@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>Nuevo pago a deuda</h1>
+		</div>
+	</div>
+	<div class="col s12">
+		<%= render 'form', debt_payment: @debt_payment %>
+	</div>
+	<%= link_to 'Regresar', financial_expense_debt_payments_path(@financial_expense) %>
+</div>

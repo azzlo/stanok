@@ -12,21 +12,41 @@
       </div>
     <% end %>
     <div class="row card-panel grey lighten-5">
-      <div class="field input-field col s12 l6">
-        <i class="material-icons prefix">account_circle</i>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
-      <div class="field input-field col s12 l6">
-        <i class="material-icons prefix">contact_mail</i>
-        <%= f.label :amount %>
-        <%= f.number_field :amount %>
-      </div>
+      <div class="col s12 l6 offset-l3">
+        <div class="row">
+          <div class="col s12 l12 right-align">
+            <!-- Switch -->
+            <div class="switch">
+              <label>
+                Gasto
+                <%= f.check_box :debt %>
+                <!-- <input id="anotherClientService" type="checkbox"> -->
+                <span class="lever"></span>
+                <span class="red-text">Deuda</span>
+              </label>
+              <br>
+            </div>
+          </div>
 
-    </div>
+          <div class="field input-field col s12 l12">
+            <i class="material-icons prefix">attach_money</i>
+            <%= f.label :amount, 'Monto' %>
+            <%= f.number_field :amount, class: 'bold large-text center-align' %>
+          </div>
+          <div class="field input-field col s12 l12">
+            <i class="material-icons prefix">description</i>
+            <%= f.label :description, 'Descripción' %>
+            <%= f.text_area :description, class: 'materialize-textarea' %>
+          </div>
+        </div>
 
-    <div class="actions waves-effect waves-light btn grey darken-3">
-      <%= f.submit %>
+        <div class="col l12 center-align">
+          <div class="actions waves-effect waves-light btn grey darken-3">
+            <%= f.submit 'Crear Gasto' if current_page?(action: 'new')%>
+            <%= f.submit 'Actualizar Gasto' if action_name == 'edit'%>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 

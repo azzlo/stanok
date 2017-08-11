@@ -1,27 +1,23 @@
 <div class="container">
-
-  <p id="notice"><%= notice %></p>
-
-  <h3 class="center-align light-blue-text text-darken-4">Egresos</h3>
-
+  <h3 class="center-align light-blue-text text-darken-4">Egresos/Gastos de la empresa</h3>
 
   <table>
     <thead>
       <tr>
-        <th>Amount</th>
-        <th>Description</th>
-        <th colspan="3"></th>
+        <th width="100" class="center-align">Amount</th>
+        <th class="center-align">Description</th>
+        <th width="10" colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @financial_expenses.each do |financial_expense| %>
       <tr>
-        <td><%= financial_expense.amount %></td>
+        <td class="right-align">
+          <%= link_to "$ #{number_with_precision(financial_expense.amount, :precision => 2) || 0}", financial_expense %></td>
         <td><%= financial_expense.description %></td>
-        <td><%= link_to 'Show', financial_expense %></td>
-        <td><%= link_to 'Edit', edit_financial_expense_path(financial_expense) %></td>
-        <td><%= link_to 'Destroy', financial_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="material-icons">mode_edit</i>'.html_safe, edit_financial_expense_path(financial_expense) %></td>
+        <td><%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, financial_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     </tbody>

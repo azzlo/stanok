@@ -1,16 +1,74 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col s12 l6 offset-l3">
+      <% if @financial_expense.active_debt == false %>
+        <p class="red-text">La deuda ya ha sido cerrada</p>
+      <% end %>
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p class="right-align">
+            <%= link_to 'Editar', edit_financial_expense_path(@financial_expense) if @financial_expense.active_debt %>
+            <%= link_to 'Editar', '#', class: 'disabled grey-text' if !@financial_expense.active_debt %>
+          </p>
+          <h2 style="margin-top: 0">Deuda por <strong>$<%= number_with_precision(@financial_expense.amount, :precision => 2) || 0 %></strong></h2>
+          <p><strong class="yellow-text text-lighten-4">Descripcion:</strong> <%= @financial_expense.description%></p>
+        </div>
+        <div class="card-action">
+          <table>
+            <thead>
+              <tr>
+                <th width="120" class="yellow-text">Abonos</th>
+                <th class="yellow-text">Detalles</th>
+                <th width="20"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @financial_expense.debt_payments.each do |payment| %>
+                <tr class="white-text">
+                  <td>$<%= number_with_precision(payment.amount, precision: 2) || 0 %></td>
+                  <td><%= payment.description %></td>
+                  <td>
+                    <%= link_to '<i class="material-icons">close</i>'.html_safe, financial_expense_debt_payment_path(@financial_expense, payment), method: :delete, data: { confirm: 'En realidad ¿deseas eliminarlo?' }  if @financial_expense.active_debt %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <br>
+          <div class="row">
+            <div class="col s12 right-align">
+              <%= link_to ' <i class="material-icons left">add_box</i> Abonar'.html_safe, new_financial_expense_debt_payment_path(@financial_expense), class: 'btn light-blue accent-4' if @financial_expense.active_debt %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= @financial_expense.amount %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @financial_expense.description %>
-  </p>
-
-  <%= link_to 'Edit', edit_financial_expense_path(@financial_expense) %> |
+      <div class="card blue-grey lighten-1">
+        <div class="card-content white-text">
+          <span class="card-title">Resumen</span>
+          <div class="row">
+            <div class="col l12 ">
+              <h4 class="center-align">
+                <%= 'Debes pagar $' + number_with_precision(@debt, :precision => 2).to_s if @debt > 0 %>
+                <%= 'Estas perdiendo $' + number_with_precision(@debt, :precision => 2).to_s if @debt < 0 %>
+                <%= '<strong class="green-text text-lighten-4">¡Deuda saldada!</strong>'.html_safe if @debt == 0 %>
+              </h4>
+              <% if @financial_expense.active_debt %>
+                <h5 style="margin-bottom: 0">Ahora puedes cerrar esta deuda.</h5>
+              <% else %>
+                <h5 class="red-text text-lighten-4 center-align" style="margin-bottom: 0">Se ha cerrado esta deuda.</h5>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% if @financial_expense.active_debt %>
+          <div class="card-action center-align">
+              <%= link_to '<i class="material-icons left">done_all</i>Cerrar Deuda'.html_safe, close_debt_financial_expense_path(@financial_expense), class: "btn-large deep-orange accent-2" %>
+          </div>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
   <%= link_to 'Back', financial_expenses_path %>
 </div>

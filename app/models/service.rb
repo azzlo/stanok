@@ -1,9 +1,15 @@
 class Service < ApplicationRecord
   has_many :financial_incomes
   has_many :service_charges
-  validates :client_name, :service_type, :amount, :execution_date, :status, :business_gain, presence: true
+  # validates_presence_of :client_name, unless => :other_client?
+  validates_presence_of :client_id, unless: :other_client? 
+  validates_presence_of :client_name, if: :other_client? 
+
+  validates :service_type, :amount, :execution_date, :status, :business_gain, presence: true
 
   before_save :add_financial_income
+
+  # attr_accessor :another_client
 
   private
   def add_financial_income

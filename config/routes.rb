@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :financial_expenses
+  resources :financial_expenses do
+    resources :debt_payments
+    collection do
+      # get ':id/close', to: 'financial_expenses#close_debt', as: 'close'
+    end
+  end
+  get '/financial_expense/:id/close', to: 'financial_expenses#close_debt', as: 'close_debt_financial_expense'
+
+
+
   resources :financial_incomes
   resources :services do
     resources :service_charges

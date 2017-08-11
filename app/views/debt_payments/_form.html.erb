@@ -1,0 +1,46 @@
+
+<%= form_for([@financial_expense, @debt_payment]) do |f| %>
+  <% if debt_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(debt_payment.errors.count, "error") %> prohibited this debt_payment from being saved:</h2>
+
+      <ul>
+      <% debt_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row card-panel grey lighten-5">
+      <div class="col s12 l6 offset-l3">
+
+
+        <div class="row">
+          
+          <div class="col s12 l6">
+            <%= f.label :amount %>
+            <%= f.text_field :amount %>
+          </div>
+
+          <div class="col s12 l6">
+            <%= f.label :financial_expense_id %>
+            <%= f.text_field :financial_expense_id %>
+          </div>
+
+          <div class="col s12 l12">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'material-textarea' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
+
+      
+      </div>
+    </div>
+
+
+<% end %>

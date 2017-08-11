@@ -2,7 +2,7 @@
   <h3 class="center-align light-blue-text text-darken-4">Nuevo gasto</h3>
 
   <%= render 'form', financial_expense: @financial_expense %>
-  <a class="waves-effect waves-light btn grey darken-3"<%= link_to 'Regresar', financial_expenses_path %></a>
+  <%= link_to '<i class="material-icons left">arrow_back</i>Gastos'.html_safe, financial_expenses_path, class: "waves-effect waves-light btn grey" %>
 
 
 </div>

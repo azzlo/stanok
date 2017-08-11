@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425205241) do
+ActiveRecord::Schema.define(version: 20170811003619) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20170425205241) do
     t.string   "phone"
     t.string   "email"
     t.string   "address"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.decimal  "latitude",     precision: 10, scale: 6
+    t.decimal  "longitude",    precision: 10, scale: 6
   end
 
   create_table "company_details", force: :cascade do |t|
@@ -41,11 +43,22 @@ ActiveRecord::Schema.define(version: 20170425205241) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "debt_payments", force: :cascade do |t|
+    t.decimal  "amount"
+    t.integer  "financial_expense_id"
+    t.text     "description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["financial_expense_id"], name: "index_debt_payments_on_financial_expense_id"
+  end
+
   create_table "financial_expenses", force: :cascade do |t|
     t.integer  "amount"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "debt"
+    t.boolean  "active_debt", default: true
   end
 
   create_table "financial_incomes", force: :cascade do |t|
@@ -119,9 +132,12 @@ ActiveRecord::Schema.define(version: 20170425205241) do
     t.string   "status"
     t.integer  "business_gain"
     t.text     "conclusions"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.date     "finish_date"
+    t.integer  "client_id"
+    t.boolean  "other_client",                 default: false
+    t.index ["client_id"], name: "index_services_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|

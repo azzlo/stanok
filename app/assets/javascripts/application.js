@@ -39,3 +39,29 @@ $( function() {
     $('.percentage-container .percentage-text').html(value);
   });
 });
+
+$(document).ready(function (){
+  // MaterializeCSS Initializators
+  $('select').material_select();
+
+
+  if ($('#anotherClientService')){
+    toggleClientService();
+    $('#anotherClientService').change(function(){
+      toggleClientService();
+    })
+  }
+
+  function toggleClientService (){
+  if ($('#anotherClientService').is(':checked')){
+    $('#fieldExistentClient').addClass('hide');
+    $('#fieldAnotherClient').removeClass('hide');
+    $('#fieldContactClient').removeClass('hide');
+  }
+  else{
+    $('#fieldExistentClient').removeClass('hide');
+    $('#fieldAnotherClient').addClass('hide');
+    $('#fieldContactClient').addClass('hide')
+  }
+}
+});

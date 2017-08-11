@@ -52,24 +52,20 @@ html{
   height: 100%;
 }
 
+input.large-text{
+  font-size: 2.2em;
+}
+
 main {
   flex: 1 0 auto;
 }
 
-p{
-  font-size: 1em;
-}
-
-td {
-  font-size: 16px;
-}
-
-th{
-  font-size: 18px;
-}
-
 h5{
   color:#666;
+}
+
+th a{
+  font-weight: normal;
 }
 
 #nav-mobile{
@@ -112,7 +108,6 @@ h5{
 
 .btn a, .btn:visited{
   color: white;
-  font-size: 11px;
 }
 
 .flash-message{

@@ -1,5 +1,5 @@
 class FinancialExpensesController < ApplicationController
-  before_action :set_financial_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_financial_expense, only: [:show, :edit, :update, :destroy, :close_debt]
 
   # GET /financial_expenses
   # GET /financial_expenses.json
@@ -10,6 +10,7 @@ class FinancialExpensesController < ApplicationController
   # GET /financial_expenses/1
   # GET /financial_expenses/1.json
   def show
+    @debt = @financial_expense.amount - @financial_expense.debt_payments.sum(:amount)
   end
 
   # GET /financial_expenses/new
@@ -28,7 +29,7 @@ class FinancialExpensesController < ApplicationController
 
     respond_to do |format|
       if @financial_expense.save
-        format.html { redirect_to @financial_expense, notice: 'Financial expense was successfully created.' }
+        format.html { redirect_to welcome_financial_state_url, notice: '¡Se registro nuevo Gasto exitosamente!' }
         format.json { render :show, status: :created, location: @financial_expense }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class FinancialExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @financial_expense.update(financial_expense_params)
-        format.html { redirect_to @financial_expense, notice: 'Financial expense was successfully updated.' }
+        format.html { redirect_to welcome_financial_state_url, notice: '¡Se actualizo Gasto exitosamente!.' }
         format.json { render :show, status: :ok, location: @financial_expense }
       else
         format.html { render :edit }
@@ -61,6 +62,14 @@ class FinancialExpensesController < ApplicationController
     end
   end
 
+  def close_debt
+    @financial_expense.update_attribute(:active_debt, false)
+    respond_to do |format|
+      format.html { redirect_to @financial_expense, notice: 'Se ha concluido esta deuda.' }
+      format.json { render :show, status: :created, location: @debt_payment }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_financial_expense
@@ -69,6 +78,6 @@ class FinancialExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def financial_expense_params
-      params.require(:financial_expense).permit(:amount, :description)
+      params.require(:financial_expense).permit(:amount, :description, :debt)
     end
 end

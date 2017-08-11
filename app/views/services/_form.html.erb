@@ -14,12 +14,32 @@
 
   <div class="row">
     <div class="row card-panel grey lighten-5">
-      <div class="input-field col s12 l6">
+
+      <div class="col s6 l12 right-align">
+        <!-- Switch -->
+        <div class="switch">
+          <label>
+            Existente
+            <%= f.check_box :other_client, id: "anotherClientService"  %>
+            <!-- <input id="anotherClientService" type="checkbox"> -->
+            <span class="lever"></span>
+            Otro cliente
+          </label>
+        </div>
+      </div>
+
+      <div id="fieldExistentClient" class="input-field col s12 l12">
+        <i class="material-icons prefix">account_circle</i>
+        <%= f.select :client_id, Client.all.collect {|p| [ p.name, p.id ] }, { include_blank: 'Selecciona un cliente...' }, class: "validate" %>
+        <%= f.label :client_id, 'Nombre de Cliente' %>
+      </div>
+
+      <div id="fieldAnotherClient" class="input-field col s12 l6 hide">
         <i class="material-icons prefix">account_circle</i>
         <%= f.label :nombre_de_cliente, for: 'service_client_name' %>
         <%= f.text_field :client_name, class: "validate" %>
       </div>
-      <div class="input-field col s12 l6">
+      <div id="fieldContactClient" class="input-field col s12 l6 hide">
         <i class="material-icons prefix">contact_mail</i>
         <%= f.label :informacion_de_contacto_cliente, for: 'service_customer_contact_information'%>
         <%= f.text_area :customer_contact_information, class: 'materialize-textarea' %>
